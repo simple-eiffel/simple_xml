@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple_xml - XML Processing for Eiffel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="simple_* logo" class="logo">
+        </div>
+        <h1>simple_xml</h1>
+        <p class="tagline">XML Parsing and Building with Fluent API for Eiffel</p>
+        <div class="badges">
+            <span class="badge badge-rfc">Foundation Layer</span>
+            <span class="badge badge-version">v1.0.0</span>
+            <span class="badge badge-license">MIT</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#api-integration">API Integration</a></li>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#parsing">Parsing</a></li>
+            <li><a href="#navigation">Navigation</a></li>
+            <li><a href="#building">Building</a></li>
+            <li><a href="#api">API Reference</a></li>
+            <li><a href="https://github.com/ljr1981/simple_xml">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                <strong>simple_xml</strong> provides a high-level, world-class API over Eiffel's
+                Gobo XM_* classes. Parse XML documents, navigate elements with direct path-based
+                access or fluent chaining, modify content, and build XML programmatically.
+            </p>
+            <p>
+                Features include:
+            </p>
+            <ul>
+                <li><strong>Parsing</strong> - Parse XML from strings or files with error handling</li>
+                <li><strong>Navigation</strong> - Direct path access (text_at, attr_at) and fluent chaining</li>
+                <li><strong>Modification</strong> - Set text, attributes, and add elements fluently</li>
+                <li><strong>Building</strong> - Construct XML documents with fluent builder</li>
+                <li><strong>Serialization</strong> - Output as compact or pretty-printed XML</li>
+            </ul>
+        </section>
+
+        <section id="api-integration">
+            <h2>API Integration</h2>
+            <p><strong>simple_xml</strong> is part of the <code>simple_*</code> API hierarchy:</p>
+            <pre><code>FOUNDATION_API (core utilities: json, uuid, base64, validation, xml)
+       |
+SERVICE_API (services: jwt, smtp, sql, cors, cache, websocket, pdf)
+       |
+APP_API (full application stack)</code></pre>
+
+            <h3>Using via FOUNDATION_API or Higher</h3>
+            <p>If your project uses <code>simple_foundation_api</code>, <code>simple_service_api</code>,
+               or <code>simple_app_api</code>, you automatically have access to <code>simple_xml</code>:</p>
+            <pre><code>class MY_CONFIG_LOADER
+
+inherit
+    FOUNDATION_API  -- or SERVICE_API, APP_API
+
+feature
+    load_config (a_path: STRING)
+        local
+            xml: SIMPLE_XML
+            doc: SIMPLE_XML_DOCUMENT
+        do
+            create xml.make
+            doc := xml.parse_file (a_path)
+            if doc.is_valid then
+                db_host := doc.text_at ("config/database/host")
+                db_port := doc.text_at ("config/database/port")
+            end
+        end
+end</code></pre>
+
+            <h3>Standalone Installation</h3>
+            <pre><code>&lt;library name="simple_xml" location="$SIMPLE_XML\simple_xml.ecf"/&gt;</code></pre>
+        </section>
+
+        <section id="quick-start">
+            <h2>Quick Start</h2>
+
+            <h3>Parsing XML</h3>
+            <pre><code>local
+    xml: SIMPLE_XML
+    doc: SIMPLE_XML_DOCUMENT
+do
+    create xml.make
+    doc := xml.parse ("&lt;root&gt;&lt;item&gt;value&lt;/item&gt;&lt;/root&gt;")
+    if doc.is_valid then
+        print (doc.text_at ("root/item"))  -- Outputs: value
+    end
+end</code></pre>
+
+            <h3>Building XML</h3>
+            <pre><code>local
+    xml: SIMPLE_XML
+    doc: SIMPLE_XML_DOCUMENT
+do
+    create xml.make
+    doc := xml.build ("config")
+        .element ("database")
+            .element ("host").text ("localhost").done
+            .element ("port").text ("5432").done
+        .done
+        .to_document
+    print (doc.to_pretty_string)
+end</code></pre>
+        </section>
+
+        <section id="parsing">
+            <h2>Parsing</h2>
+
+            <h3>Parse from String</h3>
+            <pre><code>doc := xml.parse ("&lt;root&gt;&lt;item id=%"123%"&gt;content&lt;/item&gt;&lt;/root&gt;")
+if doc.has_error then
+    print ("Error: " + doc.error_message)
+end</code></pre>
+
+            <h3>Parse from File</h3>
+            <pre><code>doc := xml.parse_file ("config.xml")</code></pre>
+        </section>
+
+        <section id="navigation">
+            <h2>Navigation</h2>
+
+            <h3>Direct Path Access</h3>
+            <pre><code>-- Get text at path
+host := doc.text_at ("config/database/host")
+
+-- Get attribute at path
+port := doc.attr_at ("config/database", "port")
+
+-- Get multiple elements
+items := doc.elements_at ("root/items/item")</code></pre>
+
+            <h3>Fluent Navigation</h3>
+            <pre><code>if attached doc.root as root then
+    if attached root.element ("items").element ("item") as item then
+        print (item.text)
+        print (item.attr ("id"))
+    end
+end</code></pre>
+
+            <h3>Element Access</h3>
+            <pre><code>-- Properties
+name := element.name
+text := element.text
+inner := element.inner_xml
+
+-- Attributes
+value := element.attr ("id")
+has_type := element.has_attr ("type")
+all_attrs := element.attributes
+
+-- Children
+child := element.element ("name")
+children := element.elements ("item")
+all_children := element.all_elements</code></pre>
+        </section>
+
+        <section id="building">
+            <h2>Building XML</h2>
+
+            <h3>Fluent Builder</h3>
+            <pre><code>doc := xml.build ("config")
+    .element ("database")
+        .element ("host").text ("localhost").done
+        .element ("port").text ("5432").done
+    .done
+    .element ("logging")
+        .attr ("level", "info")
+        .element ("file").text ("/var/log/app.log").done
+    .done
+    .to_document</code></pre>
+
+            <h3>Modification</h3>
+            <pre><code>-- Fluent modification (returns Current for chaining)
+item.set_text ("new value")
+    .set_attr ("id", "123")
+    .remove_attr ("old_attr")
+
+-- Add child element
+item.add_element ("child").set_text ("content")</code></pre>
+        </section>
+
+        <section id="api">
+            <h2>API Reference</h2>
+
+            <h3>SIMPLE_XML (Facade)</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>make</code></td><td>Create XML processor</td></tr>
+                <tr><td><code>parse (xml)</code></td><td>Parse XML string</td></tr>
+                <tr><td><code>parse_file (path)</code></td><td>Parse XML file</td></tr>
+                <tr><td><code>build (root_name)</code></td><td>Start fluent builder</td></tr>
+                <tr><td><code>new_document (root_name)</code></td><td>Create empty document</td></tr>
+            </table>
+
+            <h3>SIMPLE_XML_DOCUMENT</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>is_valid</code></td><td>Document parsed successfully</td></tr>
+                <tr><td><code>has_error</code></td><td>Parsing failed</td></tr>
+                <tr><td><code>error_message</code></td><td>Error description</td></tr>
+                <tr><td><code>root</code></td><td>Root element</td></tr>
+                <tr><td><code>text_at (path)</code></td><td>Get text at path</td></tr>
+                <tr><td><code>attr_at (path, name)</code></td><td>Get attribute at path</td></tr>
+                <tr><td><code>element_at (path)</code></td><td>Get element at path</td></tr>
+                <tr><td><code>elements_at (path)</code></td><td>Get all elements at path</td></tr>
+                <tr><td><code>to_string</code></td><td>Compact XML string</td></tr>
+                <tr><td><code>to_pretty_string</code></td><td>Indented XML string</td></tr>
+                <tr><td><code>save_to_file (path)</code></td><td>Save to file</td></tr>
+            </table>
+
+            <h3>SIMPLE_XML_ELEMENT</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>name</code></td><td>Element tag name</td></tr>
+                <tr><td><code>text</code></td><td>Text content</td></tr>
+                <tr><td><code>attr (name)</code></td><td>Get attribute value</td></tr>
+                <tr><td><code>has_attr (name)</code></td><td>Check attribute exists</td></tr>
+                <tr><td><code>attributes</code></td><td>All attributes as HASH_TABLE</td></tr>
+                <tr><td><code>element (name)</code></td><td>First child by name</td></tr>
+                <tr><td><code>elements (name)</code></td><td>All children by name</td></tr>
+                <tr><td><code>all_elements</code></td><td>All child elements</td></tr>
+                <tr><td><code>set_text (text)</code></td><td>Set text (fluent)</td></tr>
+                <tr><td><code>set_attr (name, value)</code></td><td>Set attribute (fluent)</td></tr>
+                <tr><td><code>remove_attr (name)</code></td><td>Remove attribute (fluent)</td></tr>
+                <tr><td><code>add_element (name)</code></td><td>Add child element</td></tr>
+            </table>
+
+            <h3>SIMPLE_XML_BUILDER</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>element (name)</code></td><td>Add child, move into it</td></tr>
+                <tr><td><code>attr (name, value)</code></td><td>Add attribute</td></tr>
+                <tr><td><code>text (content)</code></td><td>Set text content</td></tr>
+                <tr><td><code>comment (text)</code></td><td>Add XML comment</td></tr>
+                <tr><td><code>done</code></td><td>Return to parent</td></tr>
+                <tr><td><code>to_document</code></td><td>Build document</td></tr>
+                <tr><td><code>to_string</code></td><td>Build and serialize</td></tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>MIT License - Copyright (c) 2024-2025, Larry Rix</p>
+        <p><a href="https://github.com/ljr1981/simple_xml">View on GitHub</a></p>
+    </footer>
+</body>
+</html>
