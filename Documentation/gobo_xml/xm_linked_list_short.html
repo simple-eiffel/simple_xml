@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Linked list with a routine called before adding an object"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2003-2014, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_linked_list Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_linked_list_chart.html">Chart</a>
+<a class="nav class" href="xm_linked_list_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_linked_list"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Linked list with a routine called before adding an object&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2003-2014, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_linked_list_short.html">XM_LINKED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="esymbol">]</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_append"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append">append</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append">append</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_append_first"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_first">append_first</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_first">append_first</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_append_last"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_last">append_last</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_last">append_last</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_append_left_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_left_cursor">append_left_cursor</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_left_cursor">append_left_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_append_right_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_right_cursor">append_right_cursor</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_append_right_cursor">append_right_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_extend"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend">extend</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend">extend</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_extend_first"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_first">extend_first</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_first">extend_first</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_extend_last"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_last">extend_last</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_last">extend_last</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_extend_left_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_left_cursor">extend_left_cursor</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_left_cursor">extend_left_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_extend_right_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_right_cursor">extend_right_cursor</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linear_short.html">DS_LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_extend_right_cursor">extend_right_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_force"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force">force</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force">force</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_force_first"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_first">force_first</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_first">force_first</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_force_last"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_last">force_last</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_last">force_last</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_force_left_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_left_cursor">force_left_cursor</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_left_cursor">force_left_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_force_right_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_right_cursor">force_right_cursor</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_force_right_cursor">force_right_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_put"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put">put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put">put</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_put_first"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_first">put_first</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_first">put_first</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_put_last"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_last">put_last</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_last">put_last</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_put_left_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_left_cursor">put_left_cursor</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_left_cursor">put_left_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_put_right_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_right_cursor">put_right_cursor</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_put_right_cursor">put_right_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_replace"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace">replace</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace">replace</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_replace_at"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace_at">replace_at</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace_at">replace_at</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+
+	<a name="f_replace_at_cursor"></a><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace_at_cursor">replace_at_cursor</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">;</span> <span class="elocal">a_cursor</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_structure/ds_linked_list_short.html#f_new_cursor">new_cursor</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_linked_list_short.html#f_replace_at_cursor">replace_at_cursor</a><span class="ecomment">`</span><span class="ecomment"> with parent processing.</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_linked_list_short.html">XM_LINKED_LIST</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_linked_list_chart.html">Chart</a>
+<a class="nav class" href="xm_linked_list_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_linked_list"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

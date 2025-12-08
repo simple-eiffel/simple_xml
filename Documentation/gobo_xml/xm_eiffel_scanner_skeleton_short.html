@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Scanner skeletons for an XML parser"/>
+<meta name="library" content="Gobo Eiffel XML library"/>
+<meta name="copyright" content="Copyright (c) 2003-2019, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_eiffel_scanner_skeleton Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_eiffel_scanner_skeleton_chart.html">Chart</a>
+<a class="nav class" href="xm_eiffel_scanner_skeleton_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_eiffel_scanner_skeleton"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Scanner skeletons for an XML parser&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2003-2019, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html">XM_EIFFEL_SCANNER_SKELETON</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Reset</span>
+
+	<a name="f_reset"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_reset">reset</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset.</span>
+
+	<a name="f_push_start_condition_dtd_ignore"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_push_start_condition_dtd_ignore">push_start_condition_dtd_ignore</a>
+			<span class="ecomment">--</span><span class="ecomment"> Push start condition 'dtd_ignore' to the stack.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Input</span>
+
+	<a name="f_set_input_buffer"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_set_input_buffer">set_input_buffer</a> <span class="esymbol">(</span><span class="elocal">a_buffer</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="nefeature">input_buffer</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="ecomment">`</span><span class="nefeature">input_buffer</span><span class="ecomment">`</span><span class="ecomment"> to </span><span class="equoted">a_buffer</span><span class="ecomment">.</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">name_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_name">input_name</a> <span class="esymbol">=</span> <span class="elocal">a_buffer</span><span class="edot">.</span><span class="nefeature">name</span>
+
+	<a name="f_set_input_stream"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_set_input_stream">set_input_stream</a> <span class="esymbol">(</span><span class="elocal">a_stream</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_short.html">KI_CHARACTER_INPUT_STREAM</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set input buffer from a stream.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This class is then in charge of closing it.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_void</span><span class="esymbol">:</span> <span class="elocal">a_stream</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">readable</span><span class="esymbol">:</span> <span class="elocal">a_stream</span><span class="edot">.</span><a class="efeature" href="../gobo_kernel/ki_input_stream_short.html#f_is_open_read">is_open_read</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">input_stream_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_stream">input_stream</a> <span class="esymbol">=</span> <span class="elocal">a_stream</span>
+			<span class="etag">input_resolver_reset</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_resolver">input_resolver</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_set_input_from_resolver"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_set_input_from_resolver">set_input_from_resolver</a> <span class="esymbol">(</span><span class="elocal">a_resolver</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_external_resolver_short.html">XM_EXTERNAL_RESOLVER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set input buffer from a resolver's last resolved</span>
+			<span class="ecomment">--</span><span class="ecomment"> stream and remember resolver to close it.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_resolver_not_void</span><span class="esymbol">:</span> <span class="elocal">a_resolver</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_resolver_resolved</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_resolver</span><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_external_resolver_short.html#f_has_error">has_error</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">input_stream_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_stream">input_stream</a> <span class="esymbol">=</span> <span class="elocal">a_resolver</span><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_external_resolver_short.html#f_last_stream">last_stream</a>
+			<span class="etag">input_resolver_reset</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_resolver">input_resolver</a> <span class="esymbol">=</span> <span class="elocal">a_resolver</span>
+
+	<a name="f_close_input"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_close_input">close_input</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close input buffer if needed.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Encoding</span>
+
+	<a name="f_is_applicable_encoding"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_is_applicable_encoding">is_applicable_encoding</a> <span class="esymbol">(</span><span class="elocal">an_encoding</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this encoding known?</span>
+
+	<a name="f_set_encoding"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_set_encoding">set_encoding</a> <span class="esymbol">(</span><span class="elocal">an_encoding</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set encoding.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_encoding</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_is_applicable_encoding">is_applicable_encoding</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">an_encoding</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Error reporting</span>
+
+	<a name="f_has_error"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Was there an error?</span>
+
+	<a name="f_last_error"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_last_error">last_error</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last error</span>
+
+	<a name="f_fatal_error"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_fatal_error">fatal_error</a> <span class="esymbol">(</span><span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> A fatal error occurred.</span>
+
+	<a name="f_report_invalid_unicode_character_error"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_report_invalid_unicode_character_error">report_invalid_unicode_character_error</a> <span class="esymbol">(</span><span class="elocal">a_code</span><span class="esymbol">:</span> <a class="eclass" href="../base/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Report that the surrogate or invalid Unicode character</span>
+			<span class="ecomment">--</span><span class="ecomment"> with code </span><span class="equoted">a_code</span><span class="ecomment"> has been read from the input</span>
+			<span class="ecomment">--</span><span class="ecomment"> buffer and caused the scanner to fail.</span>
+
+	<a name="f_error_position"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_error_position">error_position</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_default_position_short.html">XM_DEFAULT_POSITION</a>
+			<span class="ecomment">--</span><span class="ecomment"> Position.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_input_name"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_name">input_name</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of object being scanned</span>
+
+	<a name="f_last_value"></a><a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_last_value">last_value</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Semantic value of last token read</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">character_entity_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_character_entity">character_entity</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">input_name_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html#f_input_name">input_name</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_eiffel_scanner_skeleton_short.html">XM_EIFFEL_SCANNER_SKELETON</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_eiffel_scanner_skeleton_chart.html">Chart</a>
+<a class="nav class" href="xm_eiffel_scanner_skeleton_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_eiffel_scanner_skeleton"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that use OASIS XML Catalogs to resolve external entities and URI referencxes."/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004-2014, Colin Adams and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_catalog_resolver Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_catalog_resolver_links.html">Relations</a>
+<a class="nav class" href="xm_catalog_resolver_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_resolver"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../gobo_xml/xm_catalog_resolver_chart.html">XM_CATALOG_RESOLVER</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">xml</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Objects that use OASIS XML Catalogs to resolve external entities and URI referencxes.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../gobo_kernel/kl_imported_string_routines_chart.html">KL_IMPORTED_STRING_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/kl_shared_file_system_chart.html">KL_SHARED_FILE_SYSTEM</a>
+	<a class="eclass" href="../gobo_xml/xm_shared_catalog_manager_chart.html">XM_SHARED_CATALOG_MANAGER</a>
+	<a class="eclass" href="../gobo_xml/xm_uri_external_resolver_chart.html">XM_URI_EXTERNAL_RESOLVER</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_uri_reference_resolver_chart.html">XM_URI_REFERENCE_RESOLVER</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`file_system' was declared in KL_SHARED_FILE_SYSTEM"><a class="efeature" href="../gobo_kernel/kl_shared_file_system_short.html#f_file_system">File_system</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_file_system_chart.html">KL_FILE_SYSTEM</a></span>
+	<span title="`has_error' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_media_type' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_has_media_type">has_media_type</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_uri_reference_error' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_has_uri_reference_error">has_uri_reference_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_stack_empty' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_is_stack_empty">is_stack_empty</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_error">last_error</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`last_media_type' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_media_type">last_media_type</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">UT_MEDIA_TYPE</span></span>
+	<span title="`last_stream' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_stream">last_stream</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_chart.html">KI_CHARACTER_INPUT_STREAM</a></span>
+	<span title="`last_system_id' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_system_id">last_system_id</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">UT_URI</span></span>
+	<span title="`last_uri_reference_error' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_uri_reference_error">last_uri_reference_error</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`last_uri_reference_stream' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_last_uri_reference_stream">last_uri_reference_stream</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_chart.html">KI_CHARACTER_INPUT_STREAM</a></span>
+	<span title="`operating_system' was declared in KL_SHARED_OPERATING_SYSTEM"><a class="efeature" href="../gobo_kernel/kl_shared_operating_system_short.html#f_operating_system">Operating_system</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_operating_system_chart.html">KL_OPERATING_SYSTEM</a></span>
+	<span title="`shared_catalog_manager' was declared in XM_SHARED_CATALOG_MANAGER"><a class="efeature" href="../gobo_xml/xm_shared_catalog_manager_short.html#f_shared_catalog_manager">Shared_catalog_manager</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_catalog_manager_chart.html">XM_CATALOG_MANAGER</a></span>
+	<span title="`string_' was declared in KL_IMPORTED_STRING_ROUTINES"><a class="efeature" href="../gobo_kernel/kl_imported_string_routines_short.html#f_string_">String_</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_string_routines_chart.html">KL_STRING_ROUTINES</a></span>
+	<span title="`supports_registering_schemes' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_supports_registering_schemes">supports_registering_schemes</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`unix_file_system' was declared in KL_SHARED_FILE_SYSTEM"><a class="efeature" href="../gobo_kernel/kl_shared_file_system_short.html#f_unix_file_system">Unix_file_system</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_unix_file_system_chart.html">KL_UNIX_FILE_SYSTEM</a></span>
+	<span title="`uri' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_uri">uri</a><span class="esymbol">:</span> <span class="neclass">UT_URI</span></span>
+	<span title="`windows_backslash_only_file_system' was declared in KL_SHARED_FILE_SYSTEM"><a class="efeature" href="../gobo_kernel/kl_shared_file_system_short.html#f_windows_backslash_only_file_system">Windows_backslash_only_file_system</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_windows_file_system_chart.html">KL_WINDOWS_FILE_SYSTEM</a></span>
+	<span title="`windows_file_system' was declared in KL_SHARED_FILE_SYSTEM"><a class="efeature" href="../gobo_kernel/kl_shared_file_system_short.html#f_windows_file_system">Windows_file_system</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_windows_file_system_chart.html">KL_WINDOWS_FILE_SYSTEM</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`clear_uri_stack' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_clear_uri_stack">clear_uri_stack</a></span>
+	<span title="`push_uri' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_push_uri">push_uri</a> <span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">:</span> <span class="neclass">UT_URI</span><span class="esymbol">)</span></span>
+	<span title="`register_scheme' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_register_scheme">register_scheme</a> <span class="esymbol">(</span><span class="elocal">a_scheme</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_resolver_chart.html">XM_URI_RESOLVER</a><span class="esymbol">)</span></span>
+	<span title="`reset_uri_stack' was declared in XM_URI_EXTERNAL_RESOLVER"><a class="efeature" href="../gobo_xml/xm_uri_external_resolver_short.html#f_reset_uri_stack">reset_uri_stack</a> <span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">:</span> <span class="neclass">UT_URI</span><span class="esymbol">)</span></span>
+	<span title="`resolve' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_resolve">resolve</a> <span class="esymbol">(</span><span class="elocal">a_system</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`resolve_finish' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_resolve_finish">resolve_finish</a></span>
+	<span title="`resolve_public' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_resolve_public">resolve_public</a> <span class="esymbol">(</span><span class="elocal">a_public</span><span class="esymbol">,</span> <span class="elocal">a_system</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`resolve_uri' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_catalog_resolver_short.html#f_resolve_uri">resolve_uri</a> <span class="esymbol">(</span><span class="elocal">a_uri_reference</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_catalog_resolver_links.html">Relations</a>
+<a class="nav class" href="xm_catalog_resolver_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_resolver"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

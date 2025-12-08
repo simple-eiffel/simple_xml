@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="xml:id DTD validator"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2005-2013, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_dtd_xmlid_validator Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_dtd_xmlid_validator_chart.html">Chart</a>
+<a class="nav class" href="xm_dtd_xmlid_validator_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_dtd_xmlid_validator"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;xml:id DTD validator&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2005-2013, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_dtd_xmlid_validator_short.html">XM_DTD_XMLID_VALIDATOR</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_xml/xm_dtd_callbacks_filter_short.html#f_make_null">make_null</a><span class="esymbol">,</span>
+	<a class="efeature" href="../gobo_xml/xm_dtd_callbacks_filter_short.html#f_make_next">make_next</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Callbacks</span>
+
+	<a name="f_on_doctype"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_on_doctype">on_doctype</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">an_id</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_xml/xm_dtd_external_id_short.html">XM_DTD_EXTERNAL_ID</a><span class="esymbol">;</span> <span class="elocal">has_internal_subset</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Document type declaration.</span>
+
+	<a name="f_on_attribute_declaration"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_on_attribute_declaration">on_attribute_declaration</a> <span class="esymbol">(</span><span class="elocal">an_element_name</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_model</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_dtd_attribute_content_short.html">XM_DTD_ATTRIBUTE_CONTENT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Attribute declaration, one event per attribute.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> ID callbacks</span>
+
+	<a name="f_on_invalid_id_declaration"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_on_invalid_id_declaration">on_invalid_id_declaration</a>
+			<span class="ecomment">--</span><span class="ecomment"> An invalid xml:id declaration has another type has occurred</span>
+
+	<a name="f_on_id_attribute_declaration"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_on_id_attribute_declaration">on_id_attribute_declaration</a> <span class="esymbol">(</span><span class="elocal">an_element_name</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> An attribute has been declared of type ID.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">an_element_name_not_void</span><span class="esymbol">:</span> <span class="elocal">an_element_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">done</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_is_id_attribute">is_id_attribute</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">an_element_name</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_has_error"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is xml:id incorrectly declared to be other than ID type?</span>
+
+	<a name="f_id_attributes"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_id_attributes">id_attributes</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../gobo_structure/ds_set_short.html">DS_SET</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> List of ID attributes other than xml:id</span>
+
+	<a name="f_is_id_attribute"></a><a class="efeature" href="../gobo_xml/xm_dtd_xmlid_validator_short.html#f_is_id_attribute">is_id_attribute</a> <span class="esymbol">(</span><span class="elocal">an_element_name</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this attribute declared with type ID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">an_element_name_not_void</span><span class="esymbol">:</span> <span class="elocal">an_element_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_dtd_xmlid_validator_short.html">XM_DTD_XMLID_VALIDATOR</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_dtd_xmlid_validator_chart.html">Chart</a>
+<a class="nav class" href="xm_dtd_xmlid_validator_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_dtd_xmlid_validator"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

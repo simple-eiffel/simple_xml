@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Error messages for parser (can be used as enumeration)"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2002, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_eiffel_parser_errors Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_eiffel_parser_errors_chart.html">Chart</a>
+<a class="nav class" href="xm_eiffel_parser_errors_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_eiffel_parser_errors"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Error messages for parser (can be used as enumeration)&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2002, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_parser_errors_short.html">XM_EIFFEL_PARSER_ERRORS</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Scanner errors</span>
+
+	<a name="f_error_no_cdata_end_in_content"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_no_cdata_end_in_content">Error_no_cdata_end_in_content</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;]]&gt; not allowed in content&quot;
+
+	<a name="f_error_no_dash_dash_in_comment"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_no_dash_dash_in_comment">Error_no_dash_dash_in_comment</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;-- not allowed in comment&quot;
+
+	<a name="f_error_xml_not_allowed_pi_name"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_xml_not_allowed_pi_name">Error_xml_not_allowed_pi_name</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;x-m-l not allowed as start of processing instruction name&quot;
+
+	<a name="f_error_lt_not_allowed_attribute_value"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_lt_not_allowed_attribute_value">Error_lt_not_allowed_attribute_value</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;&lt; not allowed in attribute value&quot;
+
+	<a name="f_error_invalid_entity_characters"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_invalid_entity_characters">Error_invalid_entity_characters</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;invalid characters in entity reference&quot;
+
+	<a name="f_error_unexpected_character"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unexpected_character">Error_unexpected_character</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;unexpected character&quot;
+
+	<a name="f_error_unsupported_encoding"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unsupported_encoding">Error_unsupported_encoding</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;unsupported character encoding&quot;
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Parser errors</span>
+
+	<a name="f_error_cannot_read_file"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_cannot_read_file">Error_cannot_read_file</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Cannot read file&quot;
+
+	<a name="f_error_cannot_open_external_dtd"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_cannot_open_external_dtd">Error_cannot_open_external_dtd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Cannot read external dtd file&quot;
+
+	<a name="f_error_incorrect_unsupported_version"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_incorrect_unsupported_version">Error_incorrect_unsupported_version</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;XML version misformed or not 1.0&quot;
+
+	<a name="f_error_stand_alone_attribute"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_stand_alone_attribute">Error_stand_alone_attribute</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Invalid standalone attribute in XML declaration&quot;
+
+	<a name="f_error_invalid_numeric_entity_code"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_invalid_numeric_entity_code">Error_invalid_numeric_entity_code</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Numeric entity code is not XML character&quot;
+
+	<a name="f_error_unexpected_misc"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unexpected_misc">Error_unexpected_misc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Unexpected construct in prolog or trailer&quot;
+
+	<a name="f_error_misplaced_dtd_declaration"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_misplaced_dtd_declaration">Error_misplaced_dtd_declaration</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misplaced markup declaration&quot;
+
+	<a name="f_error_xml_declaration"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_xml_declaration">Error_xml_declaration</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed XML Declaration&quot;
+
+	<a name="f_error_prolog"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_prolog">Error_prolog</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed document prolog&quot;
+
+	<a name="f_error_start_tag"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_start_tag">Error_start_tag</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed start tag&quot;
+
+	<a name="f_error_element_content"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_element_content">Error_element_content</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Error in element content&quot;
+
+	<a name="f_error_element_end_tag"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_element_end_tag">Error_element_end_tag</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Missing element end tag&quot;
+
+	<a name="f_error_attribute_value"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_attribute_value">Error_attribute_value</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Missing or misformed attribute value&quot;
+
+	<a name="f_error_attribute_equal"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_attribute_equal">Error_attribute_equal</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Missing attribute equal sign&quot;
+
+	<a name="f_error_attribute"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_attribute">Error_attribute</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed attribute in tag&quot;
+
+	<a name="f_error_attribute_duplicate"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_attribute_duplicate">Error_attribute_duplicate</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Attribute declared twice&quot;
+
+	<a name="f_error_end_tag"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_end_tag">Error_end_tag</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Error in end tag&quot;
+
+	<a name="f_error_end_tag_mismatch"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_end_tag_mismatch">Error_end_tag_mismatch</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;End tag does not match start tag&quot;
+
+	<a name="f_error_entity_unresolved_external"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_entity_unresolved_external">Error_entity_unresolved_external</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Unresolved external entity&quot;
+
+	<a name="f_error_entity_xml_declaration"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_entity_xml_declaration">Error_entity_xml_declaration</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Error in XML declaration&quot;
+
+	<a name="f_error_entity_literal_in_attribute"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_entity_literal_in_attribute">Error_entity_literal_in_attribute</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Literal entity expected in attribute&quot;
+
+	<a name="f_error_entity_undefined"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_entity_undefined">Error_entity_undefined</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Entity is not defined&quot;
+
+	<a name="f_error_external_reference_in_quoted_value"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_external_reference_in_quoted_value">Error_external_reference_in_quoted_value</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;External reference in quoted value&quot;
+
+	<a name="f_error_recursive_entity"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_recursive_entity">Error_recursive_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Entity cannot be recursively included&quot;
+
+	<a name="f_error_doctype_declaration"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_declaration">Error_doctype_declaration</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed DOCTYPE declaration&quot;
+
+	<a name="f_error_doctype_entity_defined_twice"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_entity_defined_twice">Error_doctype_entity_defined_twice</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Entity defined twice&quot;
+
+	<a name="f_error_doctype_external_no_resolver"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_external_no_resolver">Error_doctype_external_no_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Parser is not configured to support external DTDs&quot;
+
+	<a name="f_error_doctype_undefined_pe_entity"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_undefined_pe_entity">Error_doctype_undefined_pe_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Undefined PE entity&quot;
+
+	<a name="f_error_doctype_element"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_element">Error_doctype_element</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed element type declaration&quot;
+
+	<a name="f_error_doctype_attribute"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_attribute">Error_doctype_attribute</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed attribute list declaration&quot;
+
+	<a name="f_error_doctype_attribute_item"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_attribute_item">Error_doctype_attribute_item</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed attribute definition declaration&quot;
+
+	<a name="f_error_doctype_entity"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_entity">Error_doctype_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed entity declaration&quot;
+
+	<a name="f_error_doctype_notation"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_notation">Error_doctype_notation</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed entity notation&quot;
+
+	<a name="f_error_doctype_conditional_section"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_conditional_section">Error_doctype_conditional_section</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Misformed conditional section&quot;
+
+	<a name="f_error_doctype_peref_only_in_dtd"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_doctype_peref_only_in_dtd">Error_doctype_peref_only_in_dtd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;PE reference only allowed in DTD&quot;
+
+	<a name="f_error_pi_xml_reserved"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_pi_xml_reserved">Error_pi_xml_reserved</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;xml prefix reserved in processing instruction&quot;
+
+	<a name="f_error_unicode_invalid_character"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unicode_invalid_character">Error_unicode_invalid_character</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Unexpected unicode character&quot;
+
+	<a name="f_error_namespaces_name_misformed"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_namespaces_name_misformed">Error_namespaces_name_misformed</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Name misformed&quot;
+
+	<a name="f_error_namespaces_undeclared"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_namespaces_undeclared">Error_namespaces_undeclared</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Undeclared namespace&quot;
+
+	<a name="f_error_markup_declaration_in_prolog"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_markup_declaration_in_prolog">Error_markup_declaration_in_prolog</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Markup declaration in prolog&quot;
+
+	<a name="f_error_markup_in_external_dtd"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_markup_in_external_dtd">Error_markup_in_external_dtd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Markup in external DTD&quot;
+
+	<a name="f_error_cannot_parse_external_dtd"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_cannot_parse_external_dtd">Error_cannot_parse_external_dtd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Cannot parse external DTD&quot;
+
+	<a name="f_error_unicode_in_ascii_string_mode"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unicode_in_ascii_string_mode">Error_unicode_in_ascii_string_mode</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Unexpected non-ASCII character in ASCII-only mode&quot;
+
+	<a name="f_error_unicode_in_latin1_string_mode"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unicode_in_latin1_string_mode">Error_unicode_in_latin1_string_mode</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Unexpected non-latin1 character in latin1-only mode&quot;
+
+	<a name="f_error_unicode_invalid_utf8"></a><a class="efeature" href="../gobo_xml/xm_eiffel_parser_errors_short.html#f_error_unicode_invalid_utf8">Error_unicode_invalid_utf8</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Invalid UTF8 character sequence&quot;
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_eiffel_parser_errors_short.html">XM_EIFFEL_PARSER_ERRORS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_eiffel_parser_errors_chart.html">Chart</a>
+<a class="nav class" href="xm_eiffel_parser_errors_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_eiffel_parser_errors"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

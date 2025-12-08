@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="XML unicode character classes"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_unicode_characters Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_unicode_characters_chart.html">Chart</a>
+<a class="nav class" href="xm_unicode_characters_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_unicode_characters"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;XML unicode character classes&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2004, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_unicode_characters_short.html">XM_UNICODE_CHARACTERS</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Strings</span>
+
+	<a name="f_is_string"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_string">is_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_string</span><span class="ecomment"> a string containing no invalid XML characters?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">0</span><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_is_name"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_name">is_name</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_name</span><span class="ecomment"> a valid XML 'Name'?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty_not_name</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span>
+
+	<a name="f_is_nmtoken"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_nmtoken">is_nmtoken</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_name</span><span class="ecomment"> a valid XML 'Nmtoken'?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_ncname"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_ncname">is_ncname</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_name</span><span class="ecomment"> a valid XML Namespace 'NCName'?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty_not_name</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span>
+
+	<a name="f_is_qname"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_qname">is_qname</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_name</span><span class="ecomment"> a valid XML Namespace 'Qname'?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Qname := [NCName ':']? NCName</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty_not_name</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Characters</span>
+
+	<a name="f_is_char"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_char">is_char</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Valid content character?</span>
+
+	<a name="f_is_name_char"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_name_char">is_name_char</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Character for name?</span>
+
+	<a name="f_is_name_first"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_name_first">is_name_first</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Valid first character of name?</span>
+
+	<a name="f_is_space"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_space">is_space</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Space character?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Namespace characters</span>
+
+	<a name="f_is_ncname_char"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_ncname_char">is_ncname_char</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a valid 'NCName' character?</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="esymbol">(</span><span class="echar">':'</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../base/character_8_short.html#f_code">code</a> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_name_char">is_name_char</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_ncname_first"></a><a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_ncname_first">is_ncname_first</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a valid first character of a 'NCName'?</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="esymbol">(</span><span class="echar">':'</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../base/character_8_short.html#f_code">code</a> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../gobo_xml/xm_unicode_characters_short.html#f_is_name_first">is_name_first</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_unicode_characters_short.html">XM_UNICODE_CHARACTERS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_unicode_characters_chart.html">Chart</a>
+<a class="nav class" href="xm_unicode_characters_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_unicode_characters"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

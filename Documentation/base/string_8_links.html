@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Sequences of 8-bit characters, accessible through integer indices in a contiguous range."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2021, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>string_8 Relations</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_8_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="string_8_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="string_8"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../base/string_8_links.html">STRING_8</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../base/dynamic_table_links.html">DYNAMIC_TABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">H</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/indexable_links.html">INDEXABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">H</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../base/integer_32_links.html">INTEGER_32</a><span class="esymbol">]</span>
+	<a class="eclass" href="../base/mismatch_corrector_links.html">MISMATCH_CORRECTOR</a>
+	<a class="eclass" href="../base/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../base/resizable_links.html">RESIZABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/string_general_links.html">STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../base/to_special_links.html">TO_SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+
+<span class="ekeyword">Descendants</span>
+	<a class="eclass" href="../gobo_kernel/kl_string_links.html">KL_STRING</a>
+	<a class="eclass" href="../base/path_name_links.html">PATH_NAME</a><span class="echar">*</span>
+	<a class="eclass" href="../base/seq_string_links.html">SEQ_STRING</a>
+
+<span class="ekeyword">Clients</span>
+	<a class="eclass" href="../base/abstract_special_links.html">ABSTRACT_SPECIAL</a><span class="echar">*</span>
+	<a class="eclass" href="../base/action_sequence_links.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><span class="egeneric">EVENT_DATA</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/tuple_links.html">TUPLE</a> <span class="ekeyword">create</span> <a class="efeature" href="../base/any_short.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/any_links.html">ANY</a>
+	<a class="eclass" href="../base/arguments_links.html">ARGUMENTS</a>
+	<a class="eclass" href="../base/character_32_ref_links.html">CHARACTER_32_REF</a>
+	<a class="eclass" href="../base/character_8_ref_links.html">CHARACTER_8_REF</a>
+	<a class="eclass" href="../base/class_name_translations_links.html">CLASS_NAME_TRANSLATIONS</a>
+	<span class="neclass">CODE_PAGES</span>
+	<a class="eclass" href="../base/com_failure_links.html">COM_FAILURE</a>
+	<a class="eclass" href="../base/console_links.html">CONSOLE</a>
+	<a class="eclass" href="../base/c_string_links.html">C_STRING</a>
+	<span class="neclass">DATE_TIME_CODE</span>
+	<span class="neclass">DATE_TIME_CODE_STRING</span>
+	<a class="eclass" href="../base/directory_links.html">DIRECTORY</a>
+	<span class="neclass">DT_DATE</span>
+	<span class="neclass">DT_DATE_TIME_VALUE</span><span class="echar">*</span>
+	<span class="neclass">DT_DATE_VALUE</span><span class="echar">*</span>
+	<span class="neclass">DT_FIXED_OFFSET_TIME_ZONE</span>
+	<span class="neclass">DT_TIME</span>
+	<span class="neclass">DT_TIME_VALUE</span><span class="echar">*</span>
+	<span class="neclass">DT_TIME_ZONE</span><span class="echar">*</span>
+	<a class="eclass" href="../base/encoding_helper_links.html">ENCODING_HELPER</a>
+	<span class="neclass">ENCODING_IMP</span>
+	<a class="eclass" href="../base/exception_links.html">EXCEPTION</a>
+	<a class="eclass" href="../base/execution_environment_links.html">EXECUTION_ENVIRONMENT</a>
+	<a class="eclass" href="../base/file_links.html">FILE</a><span class="echar">*</span>
+	<a class="eclass" href="../base/file_name_links.html">FILE_NAME</a>
+	<span class="neclass">FIND_SEPARATOR_FACILITY</span>
+	<a class="eclass" href="../base/format_double_links.html">FORMAT_DOUBLE</a>
+	<a class="eclass" href="../base/format_integer_links.html">FORMAT_INTEGER</a>
+	<a class="eclass" href="../base/hexadecimal_string_to_integer_converter_links.html">HEXADECIMAL_STRING_TO_INTEGER_CONVERTER</a>
+	<a class="eclass" href="../base/integer_16_ref_links.html">INTEGER_16_REF</a>
+	<a class="eclass" href="../base/integer_32_ref_links.html">INTEGER_32_REF</a>
+	<a class="eclass" href="../base/integer_64_ref_links.html">INTEGER_64_REF</a>
+	<a class="eclass" href="../base/integer_8_ref_links.html">INTEGER_8_REF</a>
+	<span class="neclass">INTERVAL</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="neclass">ABSOLUTE</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/ise_exception_manager_links.html">ISE_EXCEPTION_MANAGER</a>
+	<a class="eclass" href="../gobo_kernel/ki_character_buffer_links.html">KI_CHARACTER_BUFFER</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_character_input_stream_links.html">KI_CHARACTER_INPUT_STREAM</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_directory_links.html">KI_DIRECTORY</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_file_system_links.html">KI_FILE_SYSTEM</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_pathname_links.html">KI_PATHNAME</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_text_input_stream_links.html">KI_TEXT_INPUT_STREAM</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/ki_text_output_stream_links.html">KI_TEXT_OUTPUT_STREAM</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_buffered_output_file_links.html">KL_BUFFERED_OUTPUT_FILE</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_character_buffer_links.html">KL_CHARACTER_BUFFER</a>
+	<a class="eclass" href="../gobo_kernel/kl_directory_links.html">KL_DIRECTORY</a>
+	<a class="eclass" href="../gobo_kernel/kl_file_links.html">KL_FILE</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_file_system_links.html">KL_FILE_SYSTEM</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_input_file_links.html">KL_INPUT_FILE</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_integer_routines_links.html">KL_INTEGER_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/kl_macos_input_file_links.html">KL_MACOS_INPUT_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_natural_32_routines_links.html">KL_NATURAL_32_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/kl_operating_system_links.html">KL_OPERATING_SYSTEM</a>
+	<a class="eclass" href="../gobo_kernel/kl_pathname_links.html">KL_PATHNAME</a>
+	<a class="eclass" href="../gobo_kernel/kl_stderr_file_links.html">KL_STDERR_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_stdin_file_links.html">KL_STDIN_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_stdout_file_links.html">KL_STDOUT_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_string_8_values_links.html">KL_STRING_8_VALUES</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_string_equality_tester_links.html">KL_STRING_EQUALITY_TESTER</a>
+	<a class="eclass" href="../gobo_kernel/kl_string_input_stream_links.html">KL_STRING_INPUT_STREAM</a>
+	<a class="eclass" href="../gobo_kernel/kl_string_output_stream_links.html">KL_STRING_OUTPUT_STREAM</a>
+	<a class="eclass" href="../gobo_kernel/kl_string_routines_links.html">KL_STRING_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/kl_string_values_links.html">KL_STRING_VALUES</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_kernel/kl_text_input_file_links.html">KL_TEXT_INPUT_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_unicode_character_buffer_links.html">KL_UNICODE_CHARACTER_BUFFER</a>
+	<a class="eclass" href="../gobo_kernel/kl_unix_file_system_links.html">KL_UNIX_FILE_SYSTEM</a>
+	<a class="eclass" href="../gobo_kernel/kl_unix_input_file_links.html">KL_UNIX_INPUT_FILE</a>
+	<a class="eclass" href="../gobo_kernel/kl_windows_file_system_links.html">KL_WINDOWS_FILE_SYSTEM</a>
+	<a class="eclass" href="../gobo_kernel/kl_windows_input_file_links.html">KL_WINDOWS_INPUT_FILE</a>
+	<span class="neclass">MA_DECIMAL</span>
+	<span class="neclass">MA_DECIMAL_BCD_PARSER</span>
+	<span class="neclass">MA_DECIMAL_COEFFICIENT</span><span class="echar">*</span>
+	<span class="neclass">MA_DECIMAL_COEFFICIENT_IMP</span>
+	<span class="neclass">MA_DECIMAL_CONTEXT</span>
+	<span class="neclass">MA_DECIMAL_PARSER</span><span class="echar">*</span>
+	<span class="neclass">MA_DECIMAL_TEXT_PARSER</span>
+	<a class="eclass" href="../base/mismatch_information_links.html">MISMATCH_INFORMATION</a>
+	<a class="eclass" href="../base/native_string_links.html">NATIVE_STRING</a>
+	<a class="eclass" href="../base/natural_16_ref_links.html">NATURAL_16_REF</a>
+	<a class="eclass" href="../base/natural_32_ref_links.html">NATURAL_32_REF</a>
+	<a class="eclass" href="../base/natural_64_ref_links.html">NATURAL_64_REF</a>
+	<a class="eclass" href="../base/natural_8_ref_links.html">NATURAL_8_REF</a>
+	<a class="eclass" href="../base/path_links.html">PATH</a>
+	<a class="eclass" href="../base/path_name_links.html">PATH_NAME</a><span class="echar">*</span>
+	<a class="eclass" href="../base/plain_text_file_links.html">PLAIN_TEXT_FILE</a>
+	<a class="eclass" href="../base/raw_file_links.html">RAW_FILE</a>
+	<a class="eclass" href="../base/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../base/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../base/reflected_object_links.html">REFLECTED_OBJECT</a><span class="echar">*</span>
+	<a class="eclass" href="../base/reflector_links.html">REFLECTOR</a>
+	<a class="eclass" href="../base/reflector_helper_links.html">REFLECTOR_HELPER</a>
+	<span class="neclass">RT_DBG_ATTRIBUTE_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_CALL_RECORD</span>
+	<span class="neclass">RT_DBG_EXECUTION_RECORDER</span>
+	<span class="neclass">RT_DBG_FIELD_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_INTERNAL</span><span class="echar">*</span>
+	<span class="neclass">RT_DBG_LOCAL_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_VALUE_RECORD</span><span class="echar">*</span>
+	<span class="neclass">RT_EXTENSION</span>
+	<span class="neclass">RT_EXTENSION_GENERAL</span><span class="echar">*</span>
+	<a class="eclass" href="../base/sed_error_factory_links.html">SED_ERROR_FACTORY</a>
+	<a class="eclass" href="../base/sed_reader_writer_links.html">SED_READER_WRITER</a><span class="echar">*</span>
+	<a class="eclass" href="../base/seq_string_links.html">SEQ_STRING</a>
+	<a class="eclass" href="../src/simple_xml_links.html">SIMPLE_XML</a>
+	<a class="eclass" href="../src/simple_xml_builder_links.html">SIMPLE_XML_BUILDER</a>
+	<a class="eclass" href="../src/simple_xml_document_links.html">SIMPLE_XML_DOCUMENT</a>
+	<a class="eclass" href="../src/simple_xml_element_links.html">SIMPLE_XML_ELEMENT</a>
+	<a class="eclass" href="../base/special_links.html">SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/stream_links.html">STREAM</a>
+	<a class="eclass" href="../base/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../base/string_to_integer_convertor_links.html">STRING_TO_INTEGER_CONVERTOR</a>
+	<a class="eclass" href="../base/string_to_numeric_convertor_links.html">STRING_TO_NUMERIC_CONVERTOR</a><span class="echar">*</span>
+	<a class="eclass" href="../base/string_to_real_convertor_links.html">STRING_TO_REAL_CONVERTOR</a>
+	<span class="neclass">ST_CHARACTER_FORMATTER</span>
+	<span class="neclass">ST_COLLATION_KEY</span><span class="echar">*</span>
+	<span class="neclass">ST_COPY_ON_WRITE_STRING</span>
+	<span class="neclass">ST_DOUBLE_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_FIXED_POINT_FORMATTER</span>
+	<span class="neclass">ST_FLOATING_POINT_FORMATTER</span>
+	<span class="neclass">ST_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_INTEGER_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_PARAMETER_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_SCIENTIFIC_FORMATTER</span>
+	<span class="neclass">ST_SPLITTER</span>
+	<span class="neclass">ST_STRING_FORMATTER</span>
+	<span class="neclass">ST_STRING_ROUTINES</span>
+	<span class="neclass">ST_UNICODE_CASE_MAPPING_INTERFACE</span><span class="echar">*</span>
+	<span class="neclass">ST_UNICODE_CHARACTER_CLASS_INTERFACE</span><span class="echar">*</span>
+	<span class="neclass">ST_UNICODE_NORMALIZATION_INTERFACE</span><span class="echar">*</span>
+	<span class="neclass">ST_WORD_WRAPPER</span>
+	<span class="neclass">ST_XPATH_CALENDAR_VALUE</span><span class="echar">*</span>
+	<span class="neclass">ST_XSD_DATE_TIME_FORMAT</span>
+	<span class="neclass">ST_XSD_DATE_TIME_PARSER</span>
+	<span class="neclass">ST_XSLT_FORMAT_DATE_TIME</span>
+	<span class="neclass">ST_XSLT_NUMBERER</span><span class="echar">*</span>
+	<span class="neclass">ST_XSLT_NUMBERER_EN</span>
+	<span class="neclass">ST_XSLT_NUMBER_ROUTINES</span>
+	<span class="neclass">SYSTEM_ENCODINGS_IMP</span>
+	<a class="eclass" href="../base/tuple_links.html">TUPLE</a>
+	<a class="eclass" href="../base/type_links.html">TYPE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../gobo_kernel/uc_character_links.html">UC_CHARACTER</a>
+	<a class="eclass" href="../gobo_kernel/uc_string_links.html">UC_STRING</a>
+	<a class="eclass" href="../gobo_kernel/uc_unicode_routines_links.html">UC_UNICODE_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/uc_utf16_routines_links.html">UC_UTF16_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/uc_utf32_routines_links.html">UC_UTF32_ROUTINES</a>
+	<a class="eclass" href="../gobo_kernel/uc_utf8_routines_links.html">UC_UTF8_ROUTINES</a>
+	<a class="eclass" href="../base/unicode_conversion_links.html">UNICODE_CONVERSION</a>
+	<a class="eclass" href="../base/unix_signals_links.html">UNIX_SIGNALS</a>
+	<a class="eclass" href="../base/utf_converter_links.html">UTF_CONVERTER</a>
+	<span class="neclass">UT_ARRAY_FORMATTER</span>
+	<span class="neclass">UT_BASE64_DECODING_INPUT_STREAM</span>
+	<span class="neclass">UT_BASE64_ENCODING_OUTPUT_STREAM</span>
+	<span class="neclass">UT_BOOLEAN_FORMATTER</span>
+	<span class="neclass">UT_CHARACTER_FORMATTER</span>
+	<span class="neclass">UT_CONFIG_PARSER</span>
+	<span class="neclass">UT_CSV_HANDLER</span>
+	<span class="neclass">UT_ERROR</span><span class="echar">*</span>
+	<span class="neclass">UT_FILENAME_HANDLER</span>
+	<span class="neclass">UT_FILE_URI_ROUTINES</span>
+	<span class="neclass">UT_HOST_PORT</span>
+	<span class="neclass">UT_HOST_PORT_ROUTINES</span>
+	<span class="neclass">UT_MEDIA_TYPE</span>
+	<span class="neclass">UT_STRING_FORMATTER</span>
+	<span class="neclass">UT_URI</span>
+	<span class="neclass">UT_URI_STRING</span>
+	<span class="neclass">UT_URL_ENCODING</span>
+	<span class="neclass">UT_VERSION</span>
+	<a class="eclass" href="../gobo_xml/xm_attribute_links.html">XM_ATTRIBUTE</a>
+	<a class="eclass" href="../gobo_xml/xm_attribute_default_filter_links.html">XM_ATTRIBUTE_DEFAULT_FILTER</a>
+	<a class="eclass" href="../gobo_xml/xm_callbacks_links.html">XM_CALLBACKS</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_catalog_links.html">XM_CATALOG</a>
+	<a class="eclass" href="../gobo_xml/xm_catalog_bootstrap_resolver_links.html">XM_CATALOG_BOOTSTRAP_RESOLVER</a>
+	<a class="eclass" href="../gobo_xml/xm_catalog_entry_links.html">XM_CATALOG_ENTRY</a>
+	<a class="eclass" href="../gobo_xml/xm_catalog_manager_links.html">XM_CATALOG_MANAGER</a>
+	<a class="eclass" href="../gobo_xml/xm_character_data_links.html">XM_CHARACTER_DATA</a>
+	<a class="eclass" href="../gobo_xml/xm_content_concatenator_links.html">XM_CONTENT_CONCATENATOR</a>
+	<a class="eclass" href="../gobo_xml/xm_data_uri_resolver_links.html">XM_DATA_URI_RESOLVER</a>
+	<a class="eclass" href="../gobo_xml/xm_delegate_catalog_entry_links.html">XM_DELEGATE_CATALOG_ENTRY</a>
+	<a class="eclass" href="../gobo_xml/xm_document_links.html">XM_DOCUMENT</a>
+	<a class="eclass" href="../gobo_xml/xm_dtd_attribute_content_links.html">XM_DTD_ATTRIBUTE_CONTENT</a>
+	<a class="eclass" href="../gobo_xml/xm_dtd_element_content_links.html">XM_DTD_ELEMENT_CONTENT</a>
+	<a class="eclass" href="../gobo_xml/xm_dtd_external_id_links.html">XM_DTD_EXTERNAL_ID</a>
+	<a class="eclass" href="../gobo_xml/xm_dtd_xmlid_validator_links.html">XM_DTD_XMLID_VALIDATOR</a>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_character_entity_links.html">XM_EIFFEL_CHARACTER_ENTITY</a>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_entity_def_links.html">XM_EIFFEL_ENTITY_DEF</a>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_input_stream_links.html">XM_EIFFEL_INPUT_STREAM</a>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_parser_name_links.html">XM_EIFFEL_PARSER_NAME</a>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_parser_skeleton_links.html">XM_EIFFEL_PARSER_SKELETON</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_eiffel_scanner_skeleton_links.html">XM_EIFFEL_SCANNER_SKELETON</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_element_links.html">XM_ELEMENT</a>
+	<a class="eclass" href="../gobo_xml/xm_formal_public_identifier_routines_links.html">XM_FORMAL_PUBLIC_IDENTIFIER_ROUTINES</a>
+	<a class="eclass" href="../gobo_xml/xm_named_node_links.html">XM_NAMED_NODE</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_namespace_links.html">XM_NAMESPACE</a>
+	<a class="eclass" href="../gobo_xml/xm_namespace_pretty_print_filter_links.html">XM_NAMESPACE_PRETTY_PRINT_FILTER</a>
+	<a class="eclass" href="../gobo_xml/xm_namespace_resolver_context_links.html">XM_NAMESPACE_RESOLVER_CONTEXT</a>
+	<a class="eclass" href="../gobo_xml/xm_node_links.html">XM_NODE</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_oasis_xml_catalog_filter_links.html">XM_OASIS_XML_CATALOG_FILTER</a>
+	<a class="eclass" href="../gobo_xml/xm_output_links.html">XM_OUTPUT</a>
+	<a class="eclass" href="../gobo_xml/xm_parser_links.html">XM_PARSER</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_position_links.html">XM_POSITION</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_pretty_print_filter_links.html">XM_PRETTY_PRINT_FILTER</a>
+	<a class="eclass" href="../gobo_xml/xm_rewrite_catalog_entry_links.html">XM_REWRITE_CATALOG_ENTRY</a>
+	<a class="eclass" href="../gobo_xml/xm_stdin_uri_resolver_links.html">XM_STDIN_URI_RESOLVER</a>
+	<a class="eclass" href="../gobo_xml/xm_suffix_catalog_entry_links.html">XM_SUFFIX_CATALOG_ENTRY</a>
+	<a class="eclass" href="../gobo_xml/xm_unicode_characters_links.html">XM_UNICODE_CHARACTERS</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_unique_namespace_prefixes_links.html">XM_UNIQUE_NAMESPACE_PREFIXES</a>
+	<a class="eclass" href="../gobo_xml/xm_uri_resolver_links.html">XM_URI_RESOLVER</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_whitespace_normalizer_links.html">XM_WHITESPACE_NORMALIZER</a>
+	<a class="eclass" href="../gobo_xml/xm_xmlid_validator_links.html">XM_XMLID_VALIDATOR</a>
+	<a class="eclass" href="../gobo_xml/xm_xmlns_generator_links.html">XM_XMLNS_GENERATOR</a>
+	<a class="eclass" href="../gobo_xml/xm_xmlns_generator_context_links.html">XM_XMLNS_GENERATOR_CONTEXT</a>
+	<a class="eclass" href="../gobo_xml/xm_xpointer_event_filter_links.html">XM_XPOINTER_EVENT_FILTER</a>
+	<a class="eclass" href="../gobo_xml/xm_xpointer_namespace_context_links.html">XM_XPOINTER_NAMESPACE_CONTEXT</a>
+	<a class="eclass" href="../gobo_xml/xm_xpointer_parser_links.html">XM_XPOINTER_PARSER</a>
+	<a class="eclass" href="../gobo_xml/xm_xpointer_tokenizer_links.html">XM_XPOINTER_TOKENIZER</a>
+	<span class="neclass">YY_BUFFER</span>
+	<span class="neclass">YY_PARSER_TOKENS</span><span class="echar">*</span>
+	<span class="neclass">YY_SCANNER</span><span class="echar">*</span>
+	<span class="neclass">YY_SCANNER_SKELETON</span><span class="echar">*</span>
+	<span class="neclass">YY_UNICODE_BUFFER</span>
+	<span class="neclass">YY_UNICODE_FILE_BUFFER</span>
+	<span class="neclass">YY_UTF8_FILE_BUFFER</span>
+
+<span class="ekeyword">Suppliers</span>
+	<a class="eclass" href="../base/arrayed_list_links.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/boolean_links.html">BOOLEAN</a>
+	<a class="eclass" href="../base/character_8_links.html">CHARACTER_8</a>
+	<a class="eclass" href="../base/c_string_links.html">C_STRING</a>
+	<a class="eclass" href="../base/integer_16_links.html">INTEGER_16</a>
+	<a class="eclass" href="../base/integer_32_links.html">INTEGER_32</a>
+	<a class="eclass" href="../base/integer_64_links.html">INTEGER_64</a>
+	<a class="eclass" href="../base/integer_8_links.html">INTEGER_8</a>
+	<a class="eclass" href="../base/natural_16_links.html">NATURAL_16</a>
+	<a class="eclass" href="../base/natural_32_links.html">NATURAL_32</a>
+	<a class="eclass" href="../base/natural_64_links.html">NATURAL_64</a>
+	<a class="eclass" href="../base/natural_8_links.html">NATURAL_8</a>
+	<a class="eclass" href="../base/platform_links.html">PLATFORM</a>
+	<a class="eclass" href="../base/pointer_links.html">POINTER</a>
+	<a class="eclass" href="../base/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../base/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../base/real_32_links.html">REAL_32</a>
+	<a class="eclass" href="../base/real_64_links.html">REAL_64</a>
+	<a class="eclass" href="../base/special_links.html">SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../base/string_8_searcher_links.html">STRING_8_SEARCHER</a>
+	<a class="eclass" href="../base/system_string_links.html">SYSTEM_STRING</a>
+	<a class="eclass" href="../base/system_string_factory_links.html">SYSTEM_STRING_FACTORY</a>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_8_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="string_8_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="string_8"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

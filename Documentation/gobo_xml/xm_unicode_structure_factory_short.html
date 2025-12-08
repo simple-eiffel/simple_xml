@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Factories for structures allowing string polymorphism"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2001-2018, Andreas Leitner and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_unicode_structure_factory Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_unicode_structure_factory_chart.html">Chart</a>
+<a class="nav class" href="xm_unicode_structure_factory_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_unicode_structure_factory"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Factories for structures allowing string polymorphism&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2001-2018, Andreas Leitner and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_unicode_structure_factory_short.html">XM_UNICODE_STRUCTURE_FACTORY</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_same_string"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_same_string">same_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Do the strings hold the same characters?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (polymorphically safe)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> General structures</span>
+
+	<a name="f_new_string_set"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_set">new_string_set</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_set_short.html">DS_HASH_SET</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string set</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">set_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_searchable_short.html#f_equality_tester">equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+
+	<a name="f_new_string_bilinked_list"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_bilinked_list">new_string_bilinked_list</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_bilinked_list_short.html">DS_BILINKED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string list</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">list_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_searchable_short.html#f_equality_tester">equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+
+	<a name="f_new_string_arrayed_list"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_arrayed_list">new_string_arrayed_list</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_arrayed_list_short.html">DS_ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string list</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">list_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_searchable_short.html#f_equality_tester">equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+
+	<a name="f_new_string_stack"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_stack">new_string_stack</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linked_stack_short.html">DS_LINKED_STACK</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string stack</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">stack_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_string_queue"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_queue">new_string_queue</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linked_queue_short.html">DS_LINKED_QUEUE</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string queue</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">queue_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_detachable_string_queue"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_detachable_string_queue">new_detachable_string_queue</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_linked_queue_short.html">DS_LINKED_QUEUE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New queue of detachable strings</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">queue_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_string_string_table"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_string_string_table">new_string_string_table</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New table of strings</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">table_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_searchable_short.html#f_equality_tester">equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+			<span class="etag">key_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_sparse_table_short.html#f_key_equality_tester">key_equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Specialized structures</span>
+
+	<a name="f_new_tokens_table"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_tokens_table">new_tokens_table</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/boolean_short.html">BOOLEAN</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New tokens table</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">table_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_sparse_table_short.html#f_key_equality_tester">key_equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+
+	<a name="f_new_boolean_string_table"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_boolean_string_table">new_boolean_string_table</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/boolean_short.html">BOOLEAN</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New boolean table</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">table_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_sparse_table_short.html#f_key_equality_tester">key_equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+
+	<a name="f_new_dtd_attribute_content_list_table"></a><a class="efeature" href="../gobo_xml/xm_unicode_structure_factory_short.html#f_new_dtd_attribute_content_list_table">new_dtd_attribute_content_list_table</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../gobo_structure/ds_list_short.html">DS_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../gobo_xml/xm_dtd_attribute_content_short.html">XM_DTD_ATTRIBUTE_CONTENT</a><span class="esymbol">]</span><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New attribute content table</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">table_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equality_tester</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_sparse_table_short.html#f_key_equality_tester">key_equality_tester</a> <span class="esymbol">=</span> <a class="efeature" href="../gobo_kernel/uc_shared_string_equality_tester_short.html#f_string_equality_tester">String_equality_tester</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_unicode_structure_factory_short.html">XM_UNICODE_STRUCTURE_FACTORY</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_unicode_structure_factory_chart.html">Chart</a>
+<a class="nav class" href="xm_unicode_structure_factory_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_unicode_structure_factory"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

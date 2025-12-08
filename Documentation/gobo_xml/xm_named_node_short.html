@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="XML nodes that have a name"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2001-2014, Andreas Leitner and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_named_node Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_named_node_chart.html">Chart</a>
+<a class="nav class" href="xm_named_node_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_named_node"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;XML nodes that have a name&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2001-2014, Andreas Leitner and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_named_node_short.html">XM_NAMED_NODE</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_has_namespace"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_has_namespace">has_namespace</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the name of current node been defined with namespace?</span>
+
+	<a name="f_has_prefix"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_has_prefix">has_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has a prefix been used to define the namespace?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (It could also be that the namespace used was the default namespace)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="ekeyword">attached</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_ns_prefix">ns_prefix</a> <span class="ekeyword">as</span> l_ns_prefix <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">l_ns_prefix</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span><span class="esymbol">)</span>
+
+	<a name="f_same_namespace"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_same_namespace">same_namespace</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_named_node_short.html">XM_NAMED_NODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has current node same namespace as other?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">equal_namespaces</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_namespace_short.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="esymbol">)</span>
+
+	<a name="f_same_name"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_same_name">same_name</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_named_node_short.html">XM_NAMED_NODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has current node same name and namespace as other?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_same_namespace">same_namespace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../gobo_kernel/kl_imported_string_routines_short.html#f_string_">String_</a><span class="edot">.</span><a class="efeature" href="../gobo_kernel/kl_string_routines_short.html#f_same_string">same_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="esymbol">,</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_has_qualified_name"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_has_qualified_name">has_qualified_name</a> <span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does this node match the qualified name?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_uri_not_void</span><span class="esymbol">:</span> <span class="elocal">a_uri</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../gobo_kernel/kl_imported_string_routines_short.html#f_string_">String_</a><span class="edot">.</span><a class="efeature" href="../gobo_kernel/kl_string_routines_short.html#f_same_string">same_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">,</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_namespace_short.html#f_uri">uri</a><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../gobo_kernel/kl_imported_string_routines_short.html#f_string_">String_</a><span class="edot">.</span><a class="efeature" href="../gobo_kernel/kl_string_routines_short.html#f_same_string">same_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">,</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_name"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name</span>
+
+	<a name="f_namespace"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_namespace_short.html">XM_NAMESPACE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Namespace of the name of current node</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_ns_prefix"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_ns_prefix">ns_prefix</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Namespace prefix used to declare the namespace of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> name of current node</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_namespace_short.html#f_ns_prefix">ns_prefix</a>
+
+	<a name="f_ns_uri"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_ns_uri">ns_uri</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> URI of namespace.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="edot">.</span><a class="efeature" href="../gobo_xml/xm_namespace_short.html#f_uri">uri</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_set_name"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_set_name">set_name</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="ecomment">`</span><span class="ecomment"> to </span><span class="equoted">a_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_name_not_empty</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">name_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a> <span class="esymbol">=</span> <span class="elocal">a_name</span>
+
+	<a name="f_set_namespace"></a><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_set_namespace">set_namespace</a> <span class="esymbol">(</span><span class="elocal">a_namespace</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a><span class="ecomment">`</span><span class="ecomment"> to </span><span class="equoted">a_namespace</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_namespace_not_void</span><span class="esymbol">:</span> <span class="elocal">a_namespace</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">namespace_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a> <span class="esymbol">=</span> <span class="elocal">a_namespace</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">name_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">name_not_empty</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_name">name</a><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+	<span class="etag">namespace_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_named_node_short.html#f_namespace">namespace</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_named_node_short.html">XM_NAMED_NODE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_named_node_chart.html">Chart</a>
+<a class="nav class" href="xm_named_node_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_named_node"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

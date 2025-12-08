@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="String creation policy for a source of unicode strings"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2001, Andreas Leitner and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_string_mode Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_string_mode_chart.html">Chart</a>
+<a class="nav class" href="xm_string_mode_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_string_mode"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;String creation policy for a source of unicode strings&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2001, Andreas Leitner and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_string_mode_short.html">XM_STRING_MODE</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_string_mode_ascii"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_ascii">is_string_mode_ascii</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is string mode set to ascii only?</span>
+			<span class="ecomment">--</span><span class="ecomment"> This means that all strings issued by this source</span>
+			<span class="ecomment">--</span><span class="ecomment"> will be of dynamic type STRING.</span>
+
+	<a name="f_is_string_mode_latin1"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_latin1">is_string_mode_latin1</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is string mode set to latin-1 only?</span>
+			<span class="ecomment">--</span><span class="ecomment"> This means that all strings issued by this source</span>
+			<span class="ecomment">--</span><span class="ecomment"> will be of dynamic type STRING.</span>
+
+	<a name="f_is_string_mode_mixed"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_mixed">is_string_mode_mixed</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is string mode set to polymorphic strings?</span>
+			<span class="ecomment">--</span><span class="ecomment"> This means that strings issued by this source will</span>
+			<span class="ecomment">--</span><span class="ecomment"> be of dynamic type STRING for ascii, and dynamic</span>
+			<span class="ecomment">--</span><span class="ecomment"> type UC_STRING or descendant when characters &gt;127</span>
+			<span class="ecomment">--</span><span class="ecomment"> are present in that string.</span>
+
+	<a name="f_is_string_mode_unicode"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_unicode">is_string_mode_unicode</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is string mode set to UC_STRING only?</span>
+			<span class="ecomment">--</span><span class="ecomment"> This means that all strings issued by this source</span>
+			<span class="ecomment">--</span><span class="ecomment"> will be of a dynamic type UC_STRING or descendant.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_string_mode_ascii"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_set_string_mode_ascii">set_string_mode_ascii</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set all strings issued by this source to be ascii</span>
+			<span class="ecomment">--</span><span class="ecomment"> (all characters &lt;= 127) and be of dynamic type STRING.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The source will be in an error state if it has</span>
+			<span class="ecomment">--</span><span class="ecomment"> characters that do not fit in a STRING.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">string_mode_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_ascii">is_string_mode_ascii</a>
+
+	<a name="f_set_string_mode_latin1"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_set_string_mode_latin1">set_string_mode_latin1</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set all strings issued by this source to be latin-1</span>
+			<span class="ecomment">--</span><span class="ecomment"> (all characters &lt;= 255) and be of dynamic type STRING.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The source will be in an error state if it has</span>
+			<span class="ecomment">--</span><span class="ecomment"> characters that do not fit in a STRING.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">string_mode_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_latin1">is_string_mode_latin1</a>
+
+	<a name="f_set_string_mode_mixed"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_set_string_mode_mixed">set_string_mode_mixed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set all strings issued by this source to be either of</span>
+			<span class="ecomment">--</span><span class="ecomment"> type UC_STRING or descendant if they contain characters</span>
+			<span class="ecomment">--</span><span class="ecomment"> &gt;127 or of dynamic type STRING otherwise.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The client receiving these strings will have to</span>
+			<span class="ecomment">--</span><span class="ecomment"> be careful about polymorphically unsafe features</span>
+			<span class="ecomment">--</span><span class="ecomment"> of STRING, like append_string.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">string_mode_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_mixed">is_string_mode_mixed</a>
+
+	<a name="f_set_string_mode_unicode"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_set_string_mode_unicode">set_string_mode_unicode</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set all strings issued by this source to be of</span>
+			<span class="ecomment">--</span><span class="ecomment"> dynamic type UC_STRING or descendant.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">string_mode_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_unicode">is_string_mode_unicode</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Copy</span>
+
+	<a name="f_copy_string_mode"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_copy_string_mode">copy_string_mode</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_string_mode_short.html">XM_STRING_MODE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy string mode.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">copied</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_same_string_mode">same_string_mode</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_same_string_mode"></a><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_same_string_mode">same_string_mode</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_string_mode_short.html">XM_STRING_MODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> with the same string mode?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">mode_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_kernel/kl_imported_boolean_routines_short.html#f_boolean_">Boolean_</a><span class="edot">.</span><a class="efeature" href="../gobo_kernel/kl_boolean_routines_short.html#f_nxor">nxor</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">&lt;&lt;</span><a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_ascii">is_string_mode_ascii</a><span class="esymbol">,</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_mixed">is_string_mode_mixed</a><span class="esymbol">,</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_unicode">is_string_mode_unicode</a><span class="esymbol">,</span> <a class="efeature" href="../gobo_xml/xm_string_mode_short.html#f_is_string_mode_latin1">is_string_mode_latin1</a><span class="esymbol">&gt;&gt;</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_string_mode_short.html">XM_STRING_MODE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_string_mode_chart.html">Chart</a>
+<a class="nav class" href="xm_string_mode_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_string_mode"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

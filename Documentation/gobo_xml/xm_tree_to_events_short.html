@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Emit events from a tree"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_tree_to_events Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_tree_to_events_chart.html">Chart</a>
+<a class="nav class" href="xm_tree_to_events_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_tree_to_events"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Emit events from a tree&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2004, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_tree_to_events_short.html">XM_TREE_TO_EVENTS</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_events"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_events">events</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_callbacks_short.html">XM_CALLBACKS</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Node processor</span>
+
+	<a name="f_process_document"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_document">process_document</a> <span class="esymbol">(</span><span class="elocal">a_document</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_document_short.html">XM_DOCUMENT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process document </span><span class="equoted">doc</span><span class="ecomment">.</span>
+
+	<a name="f_process_element"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_element">process_element</a> <span class="esymbol">(</span><span class="elocal">an_element</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_element_short.html">XM_ELEMENT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process element.</span>
+
+	<a name="f_process_attribute"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_attribute">process_attribute</a> <span class="esymbol">(</span><span class="elocal">an_attribute</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_attribute_short.html">XM_ATTRIBUTE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process attribute </span><span class="equoted">att</span><span class="ecomment">.</span>
+
+	<a name="f_process_character_data"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_character_data">process_character_data</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_character_data_short.html">XM_CHARACTER_DATA</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process character data .</span>
+
+	<a name="f_process_processing_instruction"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_processing_instruction">process_processing_instruction</a> <span class="esymbol">(</span><span class="elocal">a_pi</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_processing_instruction_short.html">XM_PROCESSING_INSTRUCTION</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process processing instruction </span><span class="equoted">a_pi</span><span class="ecomment">.</span>
+
+	<a name="f_process_comment"></a><a class="efeature" href="../gobo_xml/xm_tree_to_events_short.html#f_process_comment">process_comment</a> <span class="esymbol">(</span><span class="elocal">a_comment</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_comment_short.html">XM_COMMENT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process comment </span><span class="equoted">com</span><span class="ecomment">.</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_tree_to_events_short.html">XM_TREE_TO_EVENTS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_tree_to_events_chart.html">Chart</a>
+<a class="nav class" href="xm_tree_to_events_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_tree_to_events"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Convenience class to setup common versions of resolvers"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_resolver_factory Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_resolver_factory_chart.html">Chart</a>
+<a class="nav class" href="xm_resolver_factory_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_resolver_factory"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Convenience class to setup common versions of resolvers&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2004, Eric Bezault and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_resolver_factory_short.html">XM_RESOLVER_FACTORY</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_new_file_resolver"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_file_resolver">new_file_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver for &quot;file:&quot; scheme</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_file_resolver_with_uri"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_file_resolver_with_uri">new_file_resolver_with_uri</a> <span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">:</span> <span class="neclass">UT_URI</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver for &quot;file:&quot; scheme with default URI</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_uri_not_void</span><span class="esymbol">:</span> <span class="elocal">a_uri</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_file_resolver_current_directory"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_file_resolver_current_directory">new_file_resolver_current_directory</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver for &quot;file:&quot; scheme with default set</span>
+			<span class="ecomment">--</span><span class="ecomment"> to the current directory</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_resolver"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_resolver">new_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver for all schemes implemented within Gobo (other than string:)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_resolver_with_uri"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_resolver_with_uri">new_resolver_with_uri</a> <span class="esymbol">(</span><span class="elocal">a_uri</span><span class="esymbol">:</span> <span class="neclass">UT_URI</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver for all schemes implemented within Gobo (other than string:), with default URI</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_uri_not_void</span><span class="esymbol">:</span> <span class="elocal">a_uri</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_resolver_current_directory"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_resolver_current_directory">new_resolver_current_directory</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;Resolver for all schemes implemented within Gobo (other than string:), with default set</span>
+			<span class="ecomment">--</span><span class="ecomment"> to the current directory</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_catalog_resolver"></a><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_catalog_resolver">new_catalog_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_catalog_resolver_short.html">XM_CATALOG_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> As </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_resolver_factory_short.html#f_new_resolver_current_directory">new_resolver_current_directory</a><span class="ecomment">`</span><span class="ecomment"> plues indirection through OASIS XML Catalogs</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_resolver_factory_short.html">XM_RESOLVER_FACTORY</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_resolver_factory_chart.html">Chart</a>
+<a class="nav class" href="xm_resolver_factory_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_resolver_factory"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

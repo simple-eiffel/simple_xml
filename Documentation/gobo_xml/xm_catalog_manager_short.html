@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that manage OASIS XML Catalogs"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004-2016, Colin Adams and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_catalog_manager Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_catalog_manager_chart.html">Chart</a>
+<a class="nav class" href="xm_catalog_manager_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_manager"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Objects that manage OASIS XML Catalogs&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2004-2016, Colin Adams and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_catalog_manager_short.html">XM_CATALOG_MANAGER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_system_default_catalog"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_system_default_catalog">System_default_catalog</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;file:///etc/xml/catalog&quot;
+
+	<a name="f_unescaped_uri_characters"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_unescaped_uri_characters">Unescaped_uri_characters</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_set_short.html">DS_HASH_SET</a> <span class="esymbol">[</span><a class="eclass" href="../base/character_8_short.html">CHARACTER_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default character set not to escape</span>
+
+	<a name="f_bootstrap_resolver"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_bootstrap_resolver">bootstrap_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html">XM_CATALOG_BOOTSTRAP_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver used in bootstrap process, and for resolving catalog names</span>
+
+	<a name="f_resolved_external_entity"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_resolved_external_entity">resolved_external_entity</a> <span class="esymbol">(</span><span class="elocal">a_public_id</span><span class="esymbol">,</span> <span class="elocal">a_system_id</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolved URI reference for the external entity (</span><span class="equoted">a_public_id</span><span class="ecomment">, </span><span class="equoted">a_system_id</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">public_id_not_void</span><span class="esymbol">:</span> <span class="elocal">a_public_id</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">system_id_not_void</span><span class="esymbol">:</span> <span class="elocal">a_system_id</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">catalogs_not_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_catalogs_disabled">are_catalogs_disabled</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">resulting_uri_reference_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_resolved_uri_reference"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_resolved_uri_reference">resolved_uri_reference</a> <span class="esymbol">(</span><span class="elocal">a_uri_reference</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolved URI reference for </span><span class="equoted">a_uri_reference</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">uri_reference_not_void</span><span class="esymbol">:</span> <span class="elocal">a_uri_reference</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">catalogs_not_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_catalogs_disabled">are_catalogs_disabled</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">resulting_uri_reference_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_prefer_public"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_prefer_public">prefer_public</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Prefer public or system?</span>
+
+	<a name="f_search_chain_truncated"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_search_chain_truncated">search_chain_truncated</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this serach chain truncated due to a delegate?</span>
+
+	<a name="f_are_processing_instructions_allowed"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_processing_instructions_allowed">are_processing_instructions_allowed</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are oasis-xml-catalog PIs allowed?</span>
+
+	<a name="f_are_catalogs_disabled"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_catalogs_disabled">are_catalogs_disabled</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is all usage of catalog files disabled?</span>
+
+	<a name="f_is_system_default_catalog_suppressed"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_is_system_default_catalog_suppressed">is_system_default_catalog_suppressed</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Should use of </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_system_default_catalog">system_default_catalog</a><span class="ecomment">`</span><span class="ecomment"> be suppressed?</span>
+
+	<a name="f_debug_level"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_debug_level">debug_level</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Debugging level</span>
+
+	<a name="f_has"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_has">has</a> <span class="esymbol">(</span><span class="elocal">a_catalog_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">Current</span><span class="ecomment"> have a parsed copy of </span><span class="equoted">a_catalog_name</span><span class="ecomment">?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_suppress_default_system_catalog_file"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_suppress_default_system_catalog_file">suppress_default_system_catalog_file</a>
+			<span class="ecomment">--</span><span class="ecomment"> Suppress use of </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_system_default_catalog">system_default_catalog</a><span class="ecomment">`</span><span class="ecomment">.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">suppressed</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_is_system_default_catalog_suppressed">is_system_default_catalog_suppressed</a>
+
+	<a name="f_set_prefer_system"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_set_prefer_system">set_prefer_system</a>
+			<span class="ecomment">--</span><span class="ecomment"> Prefer passed fsi to fpi.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">prefer_system</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_prefer_public">prefer_public</a>
+
+	<a name="f_suppress_catalogs"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_suppress_catalogs">suppress_catalogs</a>
+			<span class="ecomment">--</span><span class="ecomment"> Turn off catalog file access.</span>
+
+	<a name="f_suppress_processing_instructions"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_suppress_processing_instructions">suppress_processing_instructions</a>
+			<span class="ecomment">--</span><span class="ecomment"> Do not allow oasis-xml-catalog PIs to be used.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">processing_instructions_disallowed</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_processing_instructions_allowed">are_processing_instructions_allowed</a>
+
+	<a name="f_set_debug_level"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_set_debug_level">set_debug_level</a> <span class="esymbol">(</span><span class="elocal">a_level</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set debugging level.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">positive_debug_level</span><span class="esymbol">:</span> <span class="elocal">a_level</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">debug_level_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_debug_level">debug_level</a> <span class="esymbol">=</span> <span class="elocal">a_level</span>
+
+	<a name="f_set_search_chain_truncated"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_set_search_chain_truncated">set_search_chain_truncated</a>
+			<span class="ecomment">--</span><span class="ecomment"> Indicate delagate catalog truncates serach chain.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_reset_pi_catalogs"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_reset_pi_catalogs">reset_pi_catalogs</a>
+			<span class="ecomment">--</span><span class="ecomment"> Clear </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_pi_catalog_files">pi_catalog_files</a><span class="ecomment">`</span><span class="ecomment">.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pi_catalog_list_empty</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_pi_catalog_files">pi_catalog_files</a><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_container_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_add_pi_catalog"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_add_pi_catalog">add_pi_catalog</a> <span class="esymbol">(</span><span class="elocal">a_catalog_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">a_catalog_name</span><span class="ecomment"> to </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_pi_catalog_files">pi_catalog_files</a><span class="ecomment">`</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">processing_instructions_allowed</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_are_processing_instructions_allowed">are_processing_instructions_allowed</a>
+			<span class="etag">catalog_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_catalog_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">catalog_name_added</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_pi_catalog_files">pi_catalog_files</a><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_arrayed_list_short.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_catalog_name</span><span class="esymbol">)</span>
+
+	<a name="f_parse_catalog_file"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_parse_catalog_file">parse_catalog_file</a> <span class="esymbol">(</span><span class="elocal">a_base_uri</span><span class="esymbol">:</span> <span class="neclass">UT_URI</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse </span><span class="equoted">a_catalog_file</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">base_uri_is_absolute</span><span class="esymbol">:</span> <span class="elocal">a_base_uri</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_base_uri</span><span class="edot">.</span><span class="nefeature">is_absolute</span>
+
+	<a name="f_set_bootstrap_resolver"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_set_bootstrap_resolver">set_bootstrap_resolver</a> <span class="esymbol">(</span><span class="elocal">a_resolver</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_bootstrap_resolver">bootstrap_resolver</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_bootstrap_resolver">bootstrap_resolver</a><span class="ecomment">`</span><span class="ecomment"> to </span><span class="equoted">a_resolver</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_resolver_not_void</span><span class="esymbol">:</span> <span class="elocal">a_resolver</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">bootstrap_resolver_set</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_bootstrap_resolver">bootstrap_resolver</a> <span class="esymbol">=</span> <span class="elocal">a_resolver</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_debug_message"></a><a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_debug_message">debug_message</a> <span class="esymbol">(</span><span class="elocal">a_level</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_message</span><span class="esymbol">,</span> <span class="elocal">an_argument</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment">	Send a debugging message to standard error stream.</span>
+			<span class="ecomment">--</span><span class="ecomment"> TODO better to use log4e, if it ever gets incorporated into gobo</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">strictly_positive_debug_level</span><span class="esymbol">:</span> <span class="elocal">a_level</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">message_not_void</span><span class="esymbol">:</span> <span class="elocal">a_message</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">argument_not_void</span><span class="esymbol">:</span> <span class="elocal">an_argument</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">system_catalog_files_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_system_catalog_files">system_catalog_files</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">pi_catalog_files_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_pi_catalog_files">pi_catalog_files</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">all_known_catalogs_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_all_known_catalogs">all_known_catalogs</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">positive_debug_level</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_manager_short.html#f_debug_level">debug_level</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_catalog_manager_short.html">XM_CATALOG_MANAGER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_catalog_manager_chart.html">Chart</a>
+<a class="nav class" href="xm_catalog_manager_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_manager"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

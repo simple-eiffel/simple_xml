@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="TTParsed XML document with navigation and manipulation features.  TTNavigation (direct): TTTvalue := doc.text_at (config/database/host) TTTport := doc.attr_at (config/database, port) TTTitems := doc.elements_at (root/items/item)  TTNavigation (fluent): TTTvalue := doc.root.element (database).element (host).text  TTModification: TTTdoc.root.element (database).set_attr (port, 5432) TTTdoc.root.add_element (new_item).set_text (content)  TTSerialization: TTToutput := doc.to_string TTToutput := doc.to_pretty_string TTTdoc.save_to_file (output.xml)"/>
+<meta name="author" content="Larry Rix"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>simple_xml_document Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="simple_xml_document_chart.html">Chart</a>
+<a class="nav class" href="simple_xml_document_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="simple_xml_document"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">		Parsed XML document with navigation and manipulation features.</span>
+		
+		<span class="estring">		Navigation (direct):</span>
+		<span class="estring">			value := doc.text_at (&quot;config/database/host&quot;)</span>
+		<span class="estring">			port := doc.attr_at (&quot;config/database&quot;, &quot;port&quot;)</span>
+		<span class="estring">			items := doc.elements_at (&quot;root/items/item&quot;)</span>
+		
+		<span class="estring">		Navigation (fluent):</span>
+		<span class="estring">			value := doc.root.element (&quot;database&quot;).element (&quot;host&quot;).text</span>
+		
+		<span class="estring">		Modification:</span>
+		<span class="estring">			doc.root.element (&quot;database&quot;).set_attr (&quot;port&quot;, &quot;5432&quot;)</span>
+		<span class="estring">			doc.root.add_element (&quot;new_item&quot;).set_text (&quot;content&quot;)</span>
+		
+		<span class="estring">		Serialization:</span>
+		<span class="estring">			output := doc.to_string</span>
+		<span class="estring">			output := doc.to_pretty_string</span>
+		<span class="estring">			doc.save_to_file (&quot;output.xml&quot;)</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Larry Rix&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../src/simple_xml_document_short.html">SIMPLE_XML_DOCUMENT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../src/simple_xml_document_short.html#f_default_create">default_create</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/simple_xml_document_short.html#f_make_from_string">make_from_string</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/simple_xml_document_short.html#f_make_from_xm_document">make_from_xm_document</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/simple_xml_document_short.html#f_make_empty">make_empty</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/simple_xml_document_short.html#f_make_with_error">make_with_error</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Was document parsed successfully?</span>
+
+	<a name="f_has_error"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Did parsing fail?</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_error_message"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_error_message">error_message</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Error description if parsing failed.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_root"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_root">root</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../src/simple_xml_element_short.html">SIMPLE_XML_ELEMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Root element of document.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Navigation (Direct API)</span>
+
+	<a name="f_text_at"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_text_at">text_at</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Text content at </span><span class="equoted">a_path</span><span class="ecomment">, or empty string if not found.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Path format: &quot;root/child/grandchild&quot;</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_attr_at"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_attr_at">attr_at</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_attr_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Attribute value at element </span><span class="equoted">a_path</span><span class="ecomment"> with attribute name </span><span class="equoted">a_attr_name</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns Void if element or attribute not found.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">attr_name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_attr_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_element_at"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_element_at">element_at</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../src/simple_xml_element_short.html">SIMPLE_XML_ELEMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Element at </span><span class="equoted">a_path</span><span class="ecomment">, or Void if not found.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Path format: &quot;root/child/grandchild&quot;</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_elements_at"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_elements_at">elements_at</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../src/simple_xml_element_short.html">SIMPLE_XML_ELEMENT</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All elements matching </span><span class="equoted">a_path</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Last segment can match multiple elements.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Serialization</span>
+
+	<a name="f_to_string"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_to_string">to_string</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> XML as compact string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_to_pretty_string"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_to_pretty_string">to_pretty_string</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> XML as indented string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_save_to_file"></a><a class="efeature" href="../src/simple_xml_document_short.html#f_save_to_file">save_to_file</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save XML to file at </span><span class="equoted">a_path</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">valid_implies_root</span><span class="esymbol">:</span> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../src/simple_xml_document_short.html#f_root_element">root_element</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">invalid_implies_error</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../src/simple_xml_document_short.html#f_is_valid">is_valid</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../src/simple_xml_document_short.html#f_error_message">error_message</a><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../src/simple_xml_document_short.html">SIMPLE_XML_DOCUMENT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="simple_xml_document_chart.html">Chart</a>
+<a class="nav class" href="simple_xml_document_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="simple_xml_document"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

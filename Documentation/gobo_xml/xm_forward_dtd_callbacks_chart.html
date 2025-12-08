@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Callbacks for DTD declaration"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2002-2013, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_forward_dtd_callbacks Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_forward_dtd_callbacks_links.html">Relations</a>
+<a class="nav class" href="xm_forward_dtd_callbacks_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_forward_dtd_callbacks"></span>
+</div></form><pre><span class="ekeyword">deferred</span> <span class="ekeyword">class</span>
+	<a class="eclass" href="../gobo_xml/xm_forward_dtd_callbacks_chart.html">XM_FORWARD_DTD_CALLBACKS</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">xml</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Callbacks for DTD declaration&quot;</span>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../gobo_xml/xm_dtd_callbacks_chart.html">XM_DTD_CALLBACKS</a><span class="echar">*</span>
+	<a class="eclass" href="../gobo_xml/xm_dtd_callbacks_source_chart.html">XM_DTD_CALLBACKS_SOURCE</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`dtd_callbacks' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_dtd_callbacks">dtd_callbacks</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_dtd_callbacks_chart.html">XM_DTD_CALLBACKS</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`on_attribute_declaration' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_attribute_declaration">on_attribute_declaration</a> <span class="esymbol">(</span><span class="elocal">an_element_name</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_model</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_dtd_attribute_content_chart.html">XM_DTD_ATTRIBUTE_CONTENT</a><span class="esymbol">)</span></span>
+	<span title="`on_doctype' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_doctype">on_doctype</a> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">an_id</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_xml/xm_dtd_external_id_chart.html">XM_DTD_EXTERNAL_ID</a><span class="esymbol">;</span> <span class="elocal">has_internal_subset</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`on_dtd_comment' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_dtd_comment">on_dtd_comment</a> <span class="esymbol">(</span><span class="elocal">a_content</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`on_dtd_end' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_dtd_end">on_dtd_end</a></span>
+	<span title="`on_dtd_processing_instruction' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_dtd_processing_instruction">on_dtd_processing_instruction</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">,</span> <span class="elocal">a_content</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`on_element_declaration' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_element_declaration">on_element_declaration</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_model</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_dtd_element_content_chart.html">XM_DTD_ELEMENT_CONTENT</a><span class="esymbol">)</span></span>
+	<span title="`on_entity_declaration' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_entity_declaration">on_entity_declaration</a> <span class="esymbol">(</span><span class="elocal">entity_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">is_parameter</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">value</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">an_id</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_xml/xm_dtd_external_id_chart.html">XM_DTD_EXTERNAL_ID</a><span class="esymbol">;</span> <span class="elocal">notation_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`on_notation_declaration' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_on_notation_declaration">on_notation_declaration</a> <span class="esymbol">(</span><span class="elocal">notation_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">an_id</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_dtd_external_id_chart.html">XM_DTD_EXTERNAL_ID</a><span class="esymbol">)</span></span>
+	<span title="`set_dtd_callbacks' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_set_dtd_callbacks">set_dtd_callbacks</a> <span class="esymbol">(</span><span class="elocal">a_callbacks</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../gobo_xml/xm_forward_dtd_callbacks_short.html#f_dtd_callbacks">dtd_callbacks</a><span class="esymbol">]</span> <a class="eclass" href="../gobo_xml/xm_dtd_callbacks_chart.html">XM_DTD_CALLBACKS</a><span class="esymbol">)</span></span>
+
+<span class="ekeyword">Constraints</span>
+	<span class="etag">dtd callbacks not void</span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_forward_dtd_callbacks_links.html">Relations</a>
+<a class="nav class" href="xm_forward_dtd_callbacks_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_forward_dtd_callbacks"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

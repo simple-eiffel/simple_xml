@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Callbacks filters producing trees"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2001-2013, Andreas Leitner and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_callbacks_to_tree_filter Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_callbacks_to_tree_filter_chart.html">Chart</a>
+<a class="nav class" href="xm_callbacks_to_tree_filter_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_callbacks_to_tree_filter"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Callbacks filters producing trees&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2001-2013, Andreas Leitner and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html">XM_CALLBACKS_TO_TREE_FILTER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_xml/xm_callbacks_filter_short.html#f_make_null">make_null</a><span class="esymbol">,</span>
+	<a class="efeature" href="../gobo_xml/xm_callbacks_filter_short.html#f_make_next">make_next</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Result</span>
+
+	<a name="f_document"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_document">document</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_document_short.html">XM_DOCUMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resulting document</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Position table</span>
+
+	<a name="f_is_position_table_enabled"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_is_position_table_enabled">is_position_table_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is position table enabled?</span>
+
+	<a name="f_last_position_table"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_last_position_table">last_position_table</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_xml/xm_position_table_short.html">XM_POSITION_TABLE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Position table</span>
+
+	<a name="f_enable_position_table"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_enable_position_table">enable_position_table</a> <span class="esymbol">(</span><span class="elocal">a_source</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_parser_short.html">XM_PARSER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enable position table, store the position</span>
+			<span class="ecomment">--</span><span class="ecomment"> for each node into 'last_position_table', using the</span>
+			<span class="ecomment">--</span><span class="ecomment"> positions from the source of the callbacks.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_source_not_void</span><span class="esymbol">:</span> <span class="elocal">a_source</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_disable_position_table"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_disable_position_table">disable_position_table</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable position table.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Document</span>
+
+	<a name="f_on_start"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_start">on_start</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element</span>
+
+	<a name="f_on_start_tag"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_start_tag">on_start_tag</a> <span class="esymbol">(</span><span class="elocal">namespace</span><span class="esymbol">,</span> <span class="elocal">ns_prefix</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> called whenever the parser findes a start element.</span>
+
+	<a name="f_on_attribute"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_attribute">on_attribute</a> <span class="esymbol">(</span><span class="elocal">namespace</span><span class="esymbol">,</span> <span class="elocal">a_prefix</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add attribute.</span>
+
+	<a name="f_on_content"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_content">on_content</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Character data</span>
+
+	<a name="f_on_end_tag"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_end_tag">on_end_tag</a> <span class="esymbol">(</span><span class="elocal">a_namespace</span><span class="esymbol">,</span> <span class="elocal">a_ns_prefix</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_local_part</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> End tag</span>
+
+	<a name="f_on_processing_instruction"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_processing_instruction">on_processing_instruction</a> <span class="esymbol">(</span><span class="elocal">target</span><span class="esymbol">,</span> <span class="elocal">data</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Processing instruction.</span>
+
+	<a name="f_on_comment"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_on_comment">on_comment</a> <span class="esymbol">(</span><span class="elocal">com</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Processing comment.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Events mode</span>
+
+	<a name="f_has_resolved_namespaces"></a><a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_has_resolved_namespaces">has_resolved_namespaces</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Namespaces required</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">document_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_document">document</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">namespace_cache_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_namespace_cache">namespace_cache</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">no_void_namespace</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html#f_namespace_cache">namespace_cache</a><span class="edot">.</span><a class="efeature" href="../gobo_structure/ds_searchable_short.html#f_has_void">has_void</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_callbacks_to_tree_filter_short.html">XM_CALLBACKS_TO_TREE_FILTER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_callbacks_to_tree_filter_chart.html">Chart</a>
+<a class="nav class" href="xm_callbacks_to_tree_filter_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_callbacks_to_tree_filter"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

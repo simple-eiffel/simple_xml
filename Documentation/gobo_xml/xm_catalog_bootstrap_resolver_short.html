@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Resolvers used in parsing OASIS XML Catalogs"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2004-2014, Colin Adams and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_catalog_bootstrap_resolver Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_catalog_bootstrap_resolver_chart.html">Chart</a>
+<a class="nav class" href="xm_catalog_bootstrap_resolver_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_bootstrap_resolver"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Resolvers used in parsing OASIS XML Catalogs&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Gobo Eiffel XML Library&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 2004-2014, Colin Adams and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT License&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html">XM_CATALOG_BOOTSTRAP_RESOLVER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_make_with_base_uri">make_with_base_uri</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_uri_scheme_resolver"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_uri_scheme_resolver">uri_scheme_resolver</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_uri_external_resolver_short.html">XM_URI_EXTERNAL_RESOLVER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Resolver used for opening streams</span>
+
+	<a name="f_xml_catalog_xsd_id"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_xsd_id">Xml_catalog_xsd_id</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.1/catalog.xsd&quot;
+			<span class="ecomment">--</span><span class="ecomment"> URI of the latest W3C XML Schema for OASIS XML Catalog files</span>
+
+	<a name="f_xml_catalog_xsd_id_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_xsd_id_1_0">Xml_catalog_xsd_id_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.0/catalog.xsd&quot;
+			<span class="ecomment">--</span><span class="ecomment"> URI of the W3C XML Schema for OASIS XML Catalog files, version 1.0</span>
+
+	<a name="f_xml_catalog_rng_id"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_rng_id">Xml_catalog_rng_id</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.1/catalog.rng&quot;
+			<span class="ecomment">--</span><span class="ecomment"> URI of the RELAX NG Grammar for OASIS XML Catalog files</span>
+
+	<a name="f_xml_catalog_rng_id_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_rng_id_1_0">Xml_catalog_rng_id_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.0/catalog.rng&quot;
+			<span class="ecomment">--</span><span class="ecomment"> URI of the RELAX NG Grammar for OASIS XML Catalog files, version 1.0</span>
+
+	<a name="f_xml_catalog_public_id"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_public_id">Xml_catalog_public_id</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;-//OASIS//DTD XML Catalogs V1.1//EN&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Public identifier for OASIS XML Catalog files</span>
+
+	<a name="f_xml_catalog_public_id_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_public_id_1_0">Xml_catalog_public_id_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;-//OASIS//DTD XML Catalogs V1.0//EN&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Public identifier for OASIS XML Catalog files, version 1.0</span>
+
+	<a name="f_xml_catalog_system_id"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_system_id">Xml_catalog_system_id</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd&quot;
+			<span class="ecomment">--</span><span class="ecomment"> System identifier for OASIS XML Catalog files</span>
+
+	<a name="f_xml_catalog_system_id_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_system_id_1_0">Xml_catalog_system_id_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd&quot;
+			<span class="ecomment">--</span><span class="ecomment"> System identifier for OASIS XML Catalog files, version 1.0</span>
+
+	<a name="f_reserved_directory_path"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_reserved_directory_path">Reserved_directory_path</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Path to directory containing latest schemas</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">reserved_directory_path_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_dtd"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_dtd">Xml_catalog_dtd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> OASIS XML Catalogs DTD</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_dtd_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_dtd_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_dtd_1_0">Xml_catalog_dtd_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> OASIS XML Catalogs DTD, version 1.09</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_dtd_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_xsd"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_xsd">Xml_catalog_xsd</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> OASIS XML Catalogs W3C schema</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_xsd_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_xsd_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_xsd_1_0">Xml_catalog_xsd_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> OASIS XML Catalogs W3C schema, version 1.0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_xsd_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_rng"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_rng">Xml_catalog_rng</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Path to OASIS XML Catalogs RELAX NG grammar</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_rng_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_xml_catalog_rng_1_0"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_xml_catalog_rng_1_0">Xml_catalog_rng_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Path to OASIS XML Catalogs RELAX NG grammar, version 1.0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">xml_catalog_rng_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_well_known_system_ids"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_system_ids">well_known_system_ids</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Map of well-known system ids to file names</span>
+
+	<a name="f_well_known_public_ids"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_public_ids">well_known_public_ids</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Map of well-known public ids to file names</span>
+
+	<a name="f_well_known_uri_references"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_uri_references">well_known_uri_references</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_structure/ds_hash_table_short.html">DS_HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">,</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Map of well-known URI references to file names</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Action(s)</span>
+
+	<a name="f_resolve"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_resolve">resolve</a> <span class="esymbol">(</span><span class="elocal">a_system</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Resolve a system identifier to an input stream</span>
+			<span class="ecomment">--</span><span class="ecomment"> on behalf of an XML parser.</span>
+
+	<a name="f_resolve_public"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_resolve_public">resolve_public</a> <span class="esymbol">(</span><span class="elocal">a_public</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_system</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Resolve a public/system identified pair to an input stream.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default implementation: resolve using system ID only.)</span>
+
+	<a name="f_resolve_uri"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_resolve_uri">resolve_uri</a> <span class="esymbol">(</span><span class="elocal">a_uri_reference</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Resolve </span><span class="equoted">a_uri_reference</span><span class="ecomment"> on behalf of an application.</span>
+
+	<a name="f_resolve_finish"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_resolve_finish">resolve_finish</a>
+			<span class="ecomment">--</span><span class="ecomment"> The parser has finished with the last resolved entity.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The previously resolved entity becomes the last resolved one.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_stream">last_stream</a><span class="ecomment">`</span><span class="ecomment"> is not required to be restored accordingly.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Result</span>
+
+	<a name="f_last_stream"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_stream">last_stream</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_short.html">KI_CHARACTER_INPUT_STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last stream initialised from external entity.</span>
+
+	<a name="f_has_error"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Did the last resolution attempt succeed?</span>
+
+	<a name="f_last_error"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_error">last_error</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last error message.</span>
+
+	<a name="f_last_uri_reference_stream"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_uri_reference_stream">last_uri_reference_stream</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_short.html">KI_CHARACTER_INPUT_STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last stream initialised from URI reference.</span>
+
+	<a name="f_last_system_id"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_system_id">last_system_id</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">UT_URI</span>
+			<span class="ecomment">--</span><span class="ecomment"> System id used to actually open </span><span class="ecomment">`</span><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_uri_reference_stream">last_uri_reference_stream</a><span class="ecomment">`</span>
+
+	<a name="f_has_uri_reference_error"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_has_uri_reference_error">has_uri_reference_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Did the last resolution attempt succeed?</span>
+
+	<a name="f_last_uri_reference_error"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_uri_reference_error">last_uri_reference_error</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last error message.</span>
+
+	<a name="f_has_media_type"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_has_media_type">has_media_type</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the media type available.</span>
+
+	<a name="f_last_media_type"></a><a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_last_media_type">last_media_type</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">UT_MEDIA_TYPE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Media type, if available.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">uri_scheme_resolver_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_uri_scheme_resolver">uri_scheme_resolver</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">well_known_system_ids_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_system_ids">well_known_system_ids</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">well_known_public_ids_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_public_ids">well_known_public_ids</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">well_known_uri_references_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html#f_well_known_uri_references">well_known_uri_references</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../gobo_xml/xm_catalog_bootstrap_resolver_short.html">XM_CATALOG_BOOTSTRAP_RESOLVER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="xm_catalog_bootstrap_resolver_chart.html">Chart</a>
+<a class="nav class" href="xm_catalog_bootstrap_resolver_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="xm_catalog_bootstrap_resolver"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

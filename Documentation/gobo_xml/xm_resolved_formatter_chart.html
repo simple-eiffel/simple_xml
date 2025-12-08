@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Formatter that displays resolved namespaces for debugging (not valid XML)"/>
+<meta name="library" content="Gobo Eiffel XML Library"/>
+<meta name="copyright" content="Copyright (c) 2003, Eric Bezault and others"/>
+<meta name="license" content="MIT License"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>xm_resolved_formatter Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_resolved_formatter_links.html">Relations</a>
+<a class="nav class" href="xm_resolved_formatter_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_resolved_formatter"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../gobo_xml/xm_resolved_formatter_chart.html">XM_RESOLVED_FORMATTER</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">obsolete</span><span class="esymbol">:</span> <span class="estring">&quot;Use XM_XMLNS_GENERATOR and XM_NAMESPACE_PRETTY_PRINT_FILTER directly. </span><span class="estring">[2017-04-09]</span><span class="estring">&quot;</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">xml</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Formatter that displays resolved namespaces for debugging (not valid XML)&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../gobo_xml/xm_formatter_short.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../gobo_xml/xm_formatter_chart.html">XM_FORMATTER</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`amp_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_amp_char">Amp_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`amp_entity' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_amp_entity">Amp_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`char_entity_prefix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_char_entity_prefix">Char_entity_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`comment_end' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_comment_end">Comment_end</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`comment_start' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_comment_start">Comment_start</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`cr_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_cr_char">Cr_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`default_namespace' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_default_namespace">Default_namespace</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`emptytag_end' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_emptytag_end">Emptytag_end</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`emptytag_start' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_emptytag_start">Emptytag_start</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`entity_suffix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_entity_suffix">Entity_suffix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`eq_s' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_eq_s">Eq_s</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`etag_end' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_etag_end">Etag_end</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`etag_start' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_etag_start">Etag_start</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`gt_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_gt_char">Gt_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`gt_entity' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_gt_entity">Gt_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`is_position_included' was declared in XM_FORMATTER"><a class="efeature" href="../gobo_xml/xm_formatter_short.html#f_is_position_included">is_position_included</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_output' was declared in XM_FORMATTER"><a class="efeature" href="../gobo_xml/xm_formatter_short.html#f_last_output">last_output</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/ki_character_output_stream_chart.html">KI_CHARACTER_OUTPUT_STREAM</a></span>
+	<span title="`lf_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_lf_char">Lf_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`lf_s' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_lf_s">Lf_s</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`lt_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_lt_char">Lt_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`lt_entity' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_lt_entity">Lt_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`null_input_stream' was declared in KL_SHARED_STREAMS"><a class="efeature" href="../gobo_kernel/kl_shared_streams_short.html#f_null_input_stream">Null_input_stream</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/ki_character_input_stream_chart.html">KI_CHARACTER_INPUT_STREAM</a></span>
+	<span title="`null_output_stream' was declared in KL_SHARED_STREAMS"><a class="efeature" href="../gobo_kernel/kl_shared_streams_short.html#f_null_output_stream">Null_output_stream</a><span class="esymbol">:</span> <a class="eclass" href="../gobo_kernel/kl_null_text_output_stream_chart.html">KL_NULL_TEXT_OUTPUT_STREAM</a></span>
+	<span title="`pi_end' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_pi_end">Pi_end</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`pi_start' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_pi_start">Pi_start</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`prefix_separator' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_prefix_separator">Prefix_separator</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`quot_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_quot_char">Quot_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`quot_entity' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_quot_entity">Quot_entity</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`quot_s' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_quot_s">Quot_s</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`space_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_space_char">Space_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`space_s' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_space_s">Space_s</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`stag_end' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_stag_end">Stag_end</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`stag_start' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_stag_start">Stag_start</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`tab_char' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_tab_char">Tab_char</a><span class="esymbol">:</span> <a class="eclass" href="../base/character_8_chart.html">CHARACTER_8</a></span>
+	<span title="`xml_base' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_base">Xml_base</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_base_with_prefix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_base_with_prefix">Xml_base_with_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_id' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_id">Xml_id</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_id_with_prefix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_id_with_prefix">Xml_id_with_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_lang' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_lang">Xml_lang</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_lang_with_prefix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_lang_with_prefix">Xml_lang_with_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_prefix' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_prefix">Xml_prefix</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_prefix_namespace' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_prefix_namespace">Xml_prefix_namespace</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_space' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_space">Xml_space</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_space_preserve' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_space_preserve">Xml_space_preserve</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_version_1_0' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_version_1_0">Xml_version_1_0</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xml_version_1_1' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xml_version_1_1">Xml_version_1_1</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xmlns' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xmlns">Xmlns</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`xmlns_namespace' was declared in XM_MARKUP_CONSTANTS"><a class="efeature" href="../gobo_xml/xm_markup_constants_short.html#f_xmlns_namespace">Xmlns_namespace</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`process_attribute' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_attribute">process_attribute</a> <span class="esymbol">(</span><span class="elocal">att</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_attribute_chart.html">XM_ATTRIBUTE</a><span class="esymbol">)</span></span>
+	<span title="`process_attributes' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_attributes">process_attributes</a> <span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_element_chart.html">XM_ELEMENT</a><span class="esymbol">)</span></span>
+	<span title="`process_character_data' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_character_data">process_character_data</a> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_character_data_chart.html">XM_CHARACTER_DATA</a><span class="esymbol">)</span></span>
+	<span title="`process_comment' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_comment">process_comment</a> <span class="esymbol">(</span><span class="elocal">com</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_comment_chart.html">XM_COMMENT</a><span class="esymbol">)</span></span>
+	<span title="`process_document' is declared in `Current'"><a class="efeature" href="../gobo_xml/xm_resolved_formatter_short.html#f_process_document">process_document</a> <span class="esymbol">(</span><span class="elocal">a_document</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_document_chart.html">XM_DOCUMENT</a><span class="esymbol">)</span></span>
+	<span title="`process_element' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_element">process_element</a> <span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_element_chart.html">XM_ELEMENT</a><span class="esymbol">)</span></span>
+	<span title="`process_processing_instruction' was declared in XM_NODE_PROCESSOR"><a class="efeature" href="../gobo_xml/xm_node_processor_short.html#f_process_processing_instruction">process_processing_instruction</a> <span class="esymbol">(</span><span class="elocal">a_pi</span><span class="esymbol">:</span> <a class="eclass" href="../gobo_xml/xm_processing_instruction_chart.html">XM_PROCESSING_INSTRUCTION</a><span class="esymbol">)</span></span>
+	<span title="`set_output' was declared in XM_FORMATTER"><a class="efeature" href="../gobo_xml/xm_formatter_short.html#f_set_output">set_output</a> <span class="esymbol">(</span><span class="elocal">an_output</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../gobo_xml/xm_formatter_short.html#f_last_output">last_output</a><span class="esymbol">]</span> <a class="eclass" href="../gobo_kernel/ki_character_output_stream_chart.html">KI_CHARACTER_OUTPUT_STREAM</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="xm_resolved_formatter_links.html">Relations</a>
+<a class="nav class" href="xm_resolved_formatter_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="xm_resolved_formatter"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
