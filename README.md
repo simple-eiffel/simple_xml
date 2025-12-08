@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ljr1981/claude_eiffel_op_docs/main/artwork/LOGO.png" alt="simple_ library logo" width="400">
+  <img src="https://raw.githubusercontent.com/simple-eiffel/claude_eiffel_op_docs/main/artwork/LOGO.png" alt="simple_ library logo" width="400">
 </p>
 
 # simple_xml
 
-**[Documentation](https://ljr1981.github.io/simple_xml/)** | **[GitHub](https://github.com/ljr1981/simple_xml)**
+**[Documentation](https://simple-eiffel.github.io/simple_xml/)** | **[GitHub](https://github.com/simple-eiffel/simple_xml)**
 
 XML parsing and building library for Eiffel with fluent API. Parse XML documents, navigate elements, modify content, and build XML programmatically.
 
