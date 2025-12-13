@@ -5,7 +5,7 @@ note
 	revision: "$Revision$"
 
 class
-	SIMPLE_XML_TEST_APP
+	TEST_APP
 
 create
 	make
@@ -15,7 +15,7 @@ feature -- Initialization
 	make
 			-- Run tests.
 		local
-			l_tests: SIMPLE_XML_TEST_SET
+			l_tests: LIB_TESTS
 		do
 			print ("Running simple_xml tests...%N")
 			print ("=============================%N%N")

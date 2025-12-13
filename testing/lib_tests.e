@@ -5,7 +5,7 @@ note
 	revision: "$Revision$"
 
 class
-	SIMPLE_XML_TEST_SET
+	LIB_TESTS
 
 inherit
 	TEST_SET_BASE
