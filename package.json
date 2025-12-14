@@ -1,0 +1,9 @@
+{
+  "name": "simple_xml",
+  "version": "0.1.0",
+  "description": "Simple XML - High-level XML parsing and building API for Eiffel",
+  "author": "Larry Rix",
+  "license": "MIT",
+  "category": "data-formats",
+  "keywords": ["xml", "parser", "dom", "sax", "xpath"]
+}
