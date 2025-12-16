@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE_XML_QUICK - Zero-Configuration XML</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="simple_* logo" class="logo">
+        </div>
+        <h1>SIMPLE_XML_QUICK</h1>
+        <p class="tagline">Zero-Configuration XML for Beginners</p>
+        <div class="badges">
+            <span class="badge badge-version">v1.0.0</span>
+            <span class="badge badge-license">MIT</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#api">API Reference</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                <strong>SIMPLE_XML_QUICK</strong> provides one-liner XML parse and query operations
+                with XPath support. Perfect for config files and simple XML processing.
+            </p>
+            <p>For XML building and modification, use SIMPLE_XML directly.</p>
+        </section>
+
+        <section id="quick-start">
+            <h2>Quick Start</h2>
+<pre><code><span class="keyword">local</span>
+    xml: <span class="type">SIMPLE_XML_QUICK</span>
+    titles: <span class="type">ARRAYED_LIST</span> [<span class="type">STRING</span>]
+<span class="keyword">do</span>
+    <span class="keyword">create</span> xml.make
+
+    <span class="comment">-- XPath query - get all matching text content</span>
+    titles := xml.xpath (book_xml, <span class="string">"//book/title"</span>)
+
+    <span class="comment">-- Get first match</span>
+    <span class="keyword">if</span> <span class="keyword">attached</span> xml.first (book_xml, <span class="string">"//book/title"</span>) <span class="keyword">as</span> title <span class="keyword">then</span>
+        print (title)
+    <span class="keyword">end</span>
+
+    <span class="comment">-- Get attribute value</span>
+    <span class="keyword">if</span> <span class="keyword">attached</span> xml.attr (book_xml, <span class="string">"//book"</span>, <span class="string">"id"</span>) <span class="keyword">as</span> id <span class="keyword">then</span>
+        print (<span class="string">"Book ID: "</span> + id)
+    <span class="keyword">end</span>
+
+    <span class="comment">-- Simple element access (no XPath)</span>
+    <span class="keyword">if</span> <span class="keyword">attached</span> xml.text (html, <span class="string">"title"</span>) <span class="keyword">as</span> t <span class="keyword">then</span>
+        print (<span class="string">"Page title: "</span> + t)
+    <span class="keyword">end</span>
+
+    <span class="comment">-- Get all element texts</span>
+    <span class="keyword">across</span> xml.texts (html, <span class="string">"p"</span>) <span class="keyword">as</span> p <span class="keyword">loop</span>
+        print (p)  <span class="comment">-- all paragraph texts</span>
+    <span class="keyword">end</span>
+
+    <span class="comment">-- Count matching nodes</span>
+    print (<span class="string">"Books: "</span> + xml.count (library_xml, <span class="string">"//book"</span>).out)
+
+    <span class="comment">-- Check if exists</span>
+    <span class="keyword">if</span> xml.exists (config_xml, <span class="string">"//database/host"</span>) <span class="keyword">then</span> ...
+
+    <span class="comment">-- Build simple elements</span>
+    print (xml.element (<span class="string">"name"</span>, <span class="string">"Alice"</span>))
+    <span class="comment">-- &lt;name&gt;Alice&lt;/name&gt;</span>
+
+    <span class="comment">-- Validation</span>
+    <span class="keyword">if</span> xml.is_valid (some_xml) <span class="keyword">then</span> ...
+<span class="keyword">end</span></code></pre>
+        </section>
+
+        <section id="api">
+            <h2>API Reference</h2>
+
+            <h3>Parsing</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>parse (xml)</code></td><td>Parse XML string to document</td></tr>
+                <tr><td><code>parse_file (path)</code></td><td>Parse XML file to document</td></tr>
+            </table>
+
+            <h3>XPath Queries</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>xpath (xml, query)</code></td><td>Get text content of all matches</td></tr>
+                <tr><td><code>first (xml, query)</code></td><td>Get text content of first match</td></tr>
+                <tr><td><code>attr (xml, query, name)</code></td><td>Get attribute from first match</td></tr>
+                <tr><td><code>count (xml, query)</code></td><td>Count matching nodes</td></tr>
+                <tr><td><code>exists (xml, query)</code></td><td>Does at least one match exist?</td></tr>
+            </table>
+
+            <h3>Simple Element Access</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>text (xml, element)</code></td><td>Get text by tag name (first match)</td></tr>
+                <tr><td><code>texts (xml, element)</code></td><td>Get all text by tag name</td></tr>
+            </table>
+
+            <h3>Building</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>element (name, content)</code></td><td>Create simple element</td></tr>
+                <tr><td><code>element_with_attrs (name, attrs, content)</code></td><td>Create element with attributes</td></tr>
+            </table>
+
+            <h3>Validation</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><code>is_valid (xml)</code></td><td>Is string valid XML?</td></tr>
+                <tr><td><code>has_error</code></td><td>Did last operation fail?</td></tr>
+                <tr><td><code>last_error</code></td><td>Last error message</td></tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Part of the <a href="https://github.com/simple-eiffel">Simple Eiffel</a> ecosystem</p>
+    </footer>
+</body>
+</html>

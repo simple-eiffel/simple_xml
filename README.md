@@ -74,7 +74,56 @@ For projects that only need XML functionality:
 |---------|---------|---------------------|
 | Gobo XML (built-in) | XM_* classes | (ISE_LIBRARY) |
 
-## Quick Start
+## Quick Start (Zero-Configuration)
+
+Use `SIMPLE_XML_QUICK` for the simplest possible XML operations:
+
+```eiffel
+local
+    xml: SIMPLE_XML_QUICK
+    titles: ARRAYED_LIST [STRING]
+do
+    create xml.make
+
+    -- XPath query - get all matching text content
+    titles := xml.xpath (book_xml, "//book/title")
+
+    -- Get first match
+    if attached xml.first (book_xml, "//book/title") as title then
+        print (title)
+    end
+
+    -- Get attribute value
+    if attached xml.attr (book_xml, "//book", "id") as id then
+        print ("Book ID: " + id)
+    end
+
+    -- Simple element access (no XPath)
+    if attached xml.text (html, "title") as t then
+        print ("Page title: " + t)
+    end
+
+    -- Get all element texts
+    across xml.texts (html, "p") as p loop
+        print (p)  -- all paragraph texts
+    end
+
+    -- Count matching nodes
+    print ("Books: " + xml.count (library_xml, "//book").out)
+
+    -- Check if exists
+    if xml.exists (config_xml, "//database/host") then ...
+
+    -- Build simple elements
+    print (xml.element ("name", "Alice"))
+    -- <name>Alice</name>
+
+    -- Validation
+    if xml.is_valid (some_xml) then ...
+end
+```
+
+## Standard API (Full Control)
 
 ### Parsing XML
 
