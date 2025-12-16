@@ -61,11 +61,11 @@ end
 For projects that only need XML functionality:
 
 1. Clone the repository
-2. Set environment variable: `SIMPLE_XML=D:\path\to\simple_xml`
+2. Set the ecosystem environment variable (one-time setup for all simple_* libraries): `SIMPLE_EIFFEL=D:\prod`
 3. Add to your ECF:
 
 ```xml
-<library name="simple_xml" location="$SIMPLE_XML\simple_xml.ecf"/>
+<library name="simple_xml" location="$SIMPLE_EIFFEL/simple_xml/simple_xml.ecf"/>
 ```
 
 ## Dependencies
