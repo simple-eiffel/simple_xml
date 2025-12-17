@@ -20,7 +20,6 @@
 		<library name="gobo_kernel" location="$ISE_LIBRARY\contrib\library\gobo\library\kernel\src\library.ecf"/>
 		<library name="gobo_structure" location="$ISE_LIBRARY\contrib\library\gobo\library\structure\src\library.ecf"/>
 		<library name="gobo_xml" location="$ISE_LIBRARY\contrib\library\gobo\library\xml\src\library.ecf"/>
-		<library name="simple_logger" location="$SIMPLE_EIFFEL/simple_logger/simple_logger.ecf"/>
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="simple_xml_tests" extends="simple_xml">

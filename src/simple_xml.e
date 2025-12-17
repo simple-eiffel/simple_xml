@@ -97,4 +97,25 @@ feature -- Building
 			result_valid: Result.is_valid
 		end
 
+
+feature {NONE} -- Type references (for `like` anchors only)
+
+	xml_document_typeref: detachable SIMPLE_XML_DOCUMENT
+		require
+			type_ref_only_never_call: False
+		attribute
+		end
+
+	xml_element_typeref: detachable SIMPLE_XML_ELEMENT
+		require
+			type_ref_only_never_call: False
+		attribute
+		end
+
+	xml_builder_typeref: detachable SIMPLE_XML_BUILDER
+		require
+			type_ref_only_never_call: False
+		attribute
+		end
+
 end

@@ -36,7 +36,6 @@ feature {NONE} -- Initialization
 			-- Create quick XML facade.
 		do
 			create xml.make
-			create logger.make ("xml_quick")
 			last_error := ""
 		ensure
 			xml_exists: xml /= Void
@@ -49,12 +48,10 @@ feature -- Parsing
 		require
 			xml_not_empty: not a_xml.is_empty
 		do
-			logger.debug_log ("Parsing XML (" + a_xml.count.out + " chars)")
 			last_error := ""
 			Result := xml.parse (a_xml)
-			if Result = Void and then attached xml.last_error as err then
-				last_error := err
-				logger.error ("Parse error: " + last_error)
+			if Result = Void then
+				last_error := "Parse failed"
 			end
 		end
 
@@ -63,11 +60,10 @@ feature -- Parsing
 		require
 			path_not_empty: not a_path.is_empty
 		do
-			logger.debug_log ("Parsing XML file: " + a_path)
 			last_error := ""
 			Result := xml.parse_file (a_path)
-			if Result = Void and then attached xml.last_error as err then
-				last_error := err
+			if Result = Void then
+				last_error := "Parse file failed"
 			end
 		end
 
@@ -79,7 +75,6 @@ feature -- XPath Queries (one-liners)
 			xml_not_empty: not a_xml.is_empty
 			query_not_empty: not a_query.is_empty
 		do
-			logger.debug_log ("XPath: " + a_query)
 			create Result.make (10)
 			if attached xml.parse (a_xml) as doc then
 				if attached xml.query (doc, a_query) as nodes then
@@ -201,8 +196,8 @@ feature -- Validation
 			xml_not_void: a_xml /= Void
 		do
 			Result := attached xml.parse (a_xml)
-			if not Result and then attached xml.last_error as err then
-				last_error := err
+			if not Result then
+				last_error := "Invalid XML"
 			else
 				last_error := ""
 			end
@@ -226,9 +221,6 @@ feature -- Advanced Access
 
 feature {NONE} -- Implementation
 
-	logger: SIMPLE_LOGGER
-			-- Logger for debugging.
-
 	escape_xml (a_text: STRING): STRING
 			-- Escape XML special characters.
 		do
@@ -242,7 +234,6 @@ feature {NONE} -- Implementation
 
 invariant
 	xml_exists: xml /= Void
-	logger_exists: logger /= Void
 	last_error_exists: last_error /= Void
 
 end
