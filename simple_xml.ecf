@@ -17,9 +17,9 @@
 			<void_safety support="all"/>
 		</capability>
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
-		<library name="gobo_kernel" location="$ISE_LIBRARY\contrib\library\gobo\library\kernel\src\library.ecf"/>
-		<library name="gobo_structure" location="$ISE_LIBRARY\contrib\library\gobo\library\structure\src\library.ecf"/>
-		<library name="gobo_xml" location="$ISE_LIBRARY\contrib\library\gobo\library\xml\src\library.ecf"/>
+		<library name="gobo_kernel" location="$GOBO_LIBRARY/kernel/library.ecf"/>
+		<library name="gobo_structure" location="$GOBO_LIBRARY/structure/library.ecf"/>
+		<library name="gobo_xml" location="$GOBO_LIBRARY/xml/library.ecf"/>
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="simple_xml_tests" extends="simple_xml">
