@@ -192,4 +192,64 @@ feature -- Test: Serialization
 			assert ("has_value", l_output.has_substring ("value"))
 		end
 
+feature -- Test: Quick API
+
+	test_quick_xpath
+			-- Test SIMPLE_XML_QUICK.xpath.
+			-- Coverage: xpath feature with path query
+		local
+			l_quick: SIMPLE_XML_QUICK
+			l_results: ARRAYED_LIST [STRING]
+		do
+			create l_quick.make
+			l_results := l_quick.xpath ("<root><items><item>one</item><item>two</item></items></root>", "root/items/item")
+			assert ("two_results", l_results.count = 2)
+			assert ("first_is_one", l_results.first.same_string ("one"))
+			assert ("second_is_two", l_results.i_th (2).same_string ("two"))
+		end
+
+	test_quick_first
+			-- Test SIMPLE_XML_QUICK.first.
+			-- Coverage: first feature returns first match
+		local
+			l_quick: SIMPLE_XML_QUICK
+		do
+			create l_quick.make
+			assert ("first_result", attached l_quick.first ("<root><item>value</item></root>", "root/item") as v and then v.same_string ("value"))
+			assert ("no_match", l_quick.first ("<root><item>value</item></root>", "root/missing") = Void)
+		end
+
+	test_quick_attr
+			-- Test SIMPLE_XML_QUICK.attr.
+			-- Coverage: attr feature gets attribute from first match
+		local
+			l_quick: SIMPLE_XML_QUICK
+		do
+			create l_quick.make
+			assert ("attr_found", attached l_quick.attr ("<root><item id=%"123%">value</item></root>", "root/item", "id") as v and then v.same_string ("123"))
+			assert ("attr_missing", l_quick.attr ("<root><item id=%"123%">value</item></root>", "root/item", "missing") = Void)
+		end
+
+	test_quick_count
+			-- Test SIMPLE_XML_QUICK.count.
+			-- Coverage: count feature counts matches
+		local
+			l_quick: SIMPLE_XML_QUICK
+		do
+			create l_quick.make
+			assert ("count_3", l_quick.count ("<root><item>1</item><item>2</item><item>3</item></root>", "root/item") = 3)
+			assert ("count_0", l_quick.count ("<root><item>1</item></root>", "root/missing") = 0)
+		end
+
+	test_quick_exists
+			-- Test SIMPLE_XML_QUICK.exists.
+			-- Coverage: exists feature checks for any match
+		local
+			l_quick: SIMPLE_XML_QUICK
+		do
+			create l_quick.make
+			assert ("exists_true", l_quick.exists ("<root><item>value</item></root>", "root/item"))
+			assert ("exists_false", not l_quick.exists ("<root><item>value</item></root>", "root/missing"))
+		end
+
 end

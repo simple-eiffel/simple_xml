@@ -11,14 +11,14 @@ note
 			-- Parse XML string
 			doc := xml.parse (xml_string)
 
-			-- Query with XPath
-			titles := xml.xpath (xml_string, "//book/title")
+			-- Query with path
+			titles := xml.xpath (xml_string, "root/items/item")
 
 			-- Get first match
-			title := xml.first (xml_string, "//book/title")
+			title := xml.first (xml_string, "root/items/item")
 
 			-- Get attribute
-			id := xml.attr (xml_string, "//book", "id")
+			id := xml.attr (xml_string, "root/item", "id")
 	]"
 	author: "Larry Rix"
 	date: "$Date$"
@@ -70,19 +70,16 @@ feature -- Parsing
 feature -- XPath Queries (one-liners)
 
 	xpath (a_xml: STRING; a_query: STRING): ARRAYED_LIST [STRING]
-			-- Execute XPath query, return text content of matching nodes.
+			-- Execute path query, return text content of matching nodes.
+			-- Path format: "root/child/element" (simple path, not full XPath)
 		require
 			xml_not_empty: not a_xml.is_empty
 			query_not_empty: not a_query.is_empty
 		do
 			create Result.make (10)
-			if attached xml.parse (a_xml) as doc then
-				if attached xml.query (doc, a_query) as nodes then
-					across nodes as n loop
-						if attached n.text_content as t then
-							Result.extend (t)
-						end
-					end
+			if attached xml.parse (a_xml) as doc and then doc.is_valid then
+				across xml.query (doc, a_query) as n loop
+					Result.extend (n.text)
 				end
 			end
 		ensure
@@ -109,10 +106,13 @@ feature -- XPath Queries (one-liners)
 			xml_not_empty: not a_xml.is_empty
 			query_not_empty: not a_query.is_empty
 			attr_not_empty: not a_attr_name.is_empty
+		local
+			l_nodes: ARRAYED_LIST [SIMPLE_XML_ELEMENT]
 		do
-			if attached xml.parse (a_xml) as doc then
-				if attached xml.query (doc, a_query) as nodes and then not nodes.is_empty then
-					Result := nodes.first.attribute_value (a_attr_name)
+			if attached xml.parse (a_xml) as doc and then doc.is_valid then
+				l_nodes := xml.query (doc, a_query)
+				if not l_nodes.is_empty then
+					Result := l_nodes.first.attr (a_attr_name)
 				end
 			end
 		end
@@ -123,10 +123,8 @@ feature -- XPath Queries (one-liners)
 			xml_not_empty: not a_xml.is_empty
 			query_not_empty: not a_query.is_empty
 		do
-			if attached xml.parse (a_xml) as doc then
-				if attached xml.query (doc, a_query) as nodes then
-					Result := nodes.count
-				end
+			if attached xml.parse (a_xml) as doc and then doc.is_valid then
+				Result := xml.query (doc, a_query).count
 			end
 		end
 
@@ -195,7 +193,7 @@ feature -- Validation
 		require
 			xml_not_void: a_xml /= Void
 		do
-			Result := attached xml.parse (a_xml)
+			Result := attached xml.parse (a_xml) as doc and then doc.is_valid
 			if not Result then
 				last_error := "Invalid XML"
 			else
