@@ -334,15 +334,15 @@ feature {NONE} -- Implementation
 			-- Escape XML special characters in `a_text'.
 		do
 			create Result.make (a_text.count + 10)
-			across a_text as c loop
-				inspect c
+			across a_text as ic_c loop
+				inspect ic_c
 				when '<' then Result.append ("&lt;")
 				when '>' then Result.append ("&gt;")
 				when '&' then Result.append ("&amp;")
 				when '"' then Result.append ("&quot;")
 				when '%'' then Result.append ("&apos;")
 				else
-					Result.append_character (c)
+					Result.append_character (ic_c)
 				end
 			end
 		end

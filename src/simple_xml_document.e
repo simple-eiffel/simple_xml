@@ -251,11 +251,11 @@ feature -- Navigation (Direct API)
 				else
 					-- Build parent path
 					create l_parent_path.make_empty
-					across 1 |..| (l_parts.count - 1) as i loop
+					across 1 |..| (l_parts.count - 1) as ic loop
 						if not l_parent_path.is_empty then
 							l_parent_path.append_character ('/')
 						end
-						l_parent_path.append (l_parts.i_th (i))
+						l_parent_path.append (l_parts.i_th (ic))
 					end
 					if attached element_at (l_parent_path) as l_parent then
 						Result := l_parent.elements (l_element_name)

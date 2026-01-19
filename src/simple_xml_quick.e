@@ -78,8 +78,8 @@ feature -- XPath Queries (one-liners)
 		do
 			create Result.make (10)
 			if attached xml.parse (a_xml) as doc and then doc.is_valid then
-				across xml.query (doc, a_query) as n loop
-					Result.extend (n.text)
+				across xml.query (doc, a_query) as ic_n loop
+					Result.extend (ic_n.text)
 				end
 			end
 		ensure
@@ -178,8 +178,8 @@ feature -- Building
 			name_not_empty: not a_name.is_empty
 		do
 			Result := "<" + a_name
-			across a_attrs as a loop
-				Result.append (" " + a.name + "=%"" + escape_xml (a.value) + "%"")
+			across a_attrs as ic_a loop
+				Result.append (" " + ic_a.name + "=%"" + escape_xml (ic_a.value) + "%"")
 			end
 			Result.append (">" + escape_xml (a_content) + "</" + a_name + ">")
 		ensure
