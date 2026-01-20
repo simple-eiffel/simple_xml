@@ -220,14 +220,12 @@ feature -- Advanced Access
 feature {NONE} -- Implementation
 
 	escape_xml (a_text: STRING): STRING
-			-- Escape XML special characters.
+			-- Escape XML special characters using SIMPLE_ZSTRING_ESCAPER.
+		local
+			l_escaper: SIMPLE_ZSTRING_ESCAPER
 		do
-			Result := a_text.twin
-			Result.replace_substring_all ("&", "&amp;")
-			Result.replace_substring_all ("<", "&lt;")
-			Result.replace_substring_all (">", "&gt;")
-			Result.replace_substring_all ("%"", "&quot;")
-			Result.replace_substring_all ("'", "&apos;")
+			create l_escaper
+			Result := l_escaper.escape_xml (a_text).to_string_8
 		end
 
 invariant

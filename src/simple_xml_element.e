@@ -331,20 +331,12 @@ feature {SIMPLE_XML_ELEMENT, SIMPLE_XML_DOCUMENT, SIMPLE_XML_BUILDER} -- Impleme
 feature {NONE} -- Implementation
 
 	escape_xml (a_text: STRING): STRING
-			-- Escape XML special characters in `a_text'.
+			-- Escape XML special characters in `a_text' using SIMPLE_ZSTRING_ESCAPER.
+		local
+			l_escaper: SIMPLE_ZSTRING_ESCAPER
 		do
-			create Result.make (a_text.count + 10)
-			across a_text as ic_c loop
-				inspect ic_c
-				when '<' then Result.append ("&lt;")
-				when '>' then Result.append ("&gt;")
-				when '&' then Result.append ("&amp;")
-				when '"' then Result.append ("&quot;")
-				when '%'' then Result.append ("&apos;")
-				else
-					Result.append_character (ic_c)
-				end
-			end
+			create l_escaper
+			Result := l_escaper.escape_xml (a_text).to_string_8
 		end
 
 	element_to_string (a_elem: XM_ELEMENT): STRING

@@ -20,6 +20,7 @@
 		<library name="gobo_kernel" location="$GOBO_LIBRARY/kernel/library.ecf"/>
 		<library name="gobo_structure" location="$GOBO_LIBRARY/structure/library.ecf"/>
 		<library name="gobo_xml" location="$GOBO_LIBRARY/xml/library.ecf"/>
+		<library name="simple_zstring" location="$SIMPLE_EIFFEL/simple_zstring/simple_zstring.ecf"/>
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="simple_xml_tests" extends="simple_xml">
