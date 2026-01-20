@@ -35,6 +35,7 @@ feature -- Initialization
 			run_test (agent l_tests.test_quick_attr, "test_quick_attr")
 			run_test (agent l_tests.test_quick_count, "test_quick_count")
 			run_test (agent l_tests.test_quick_exists, "test_quick_exists")
+			run_test (agent l_tests.test_parse_file_with_utf8_bom, "test_parse_file_with_utf8_bom")
 			print ("%N=============================%N")
 			print ("Tests completed: " + test_count.out + " total, ")
 			print (pass_count.out + " passed, ")

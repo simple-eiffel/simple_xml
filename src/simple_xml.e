@@ -62,7 +62,7 @@ feature -- Parsing
 			if l_file.exists and then l_file.is_readable then
 				l_file.open_read
 				l_file.read_stream (l_file.count)
-				l_content := l_file.last_string
+				l_content := strip_utf8_bom (l_file.last_string)
 				l_file.close
 				create Result.make_from_string (l_content)
 			else
@@ -113,6 +113,23 @@ feature -- Building
 			result_valid: Result.is_valid
 		end
 
+
+feature {NONE} -- Implementation
+
+	strip_utf8_bom (a_bytes: STRING_8): STRING_8
+			-- Remove UTF-8 BOM (EF BB BF) if present at start of string.
+		local
+			l_detector: SIMPLE_ENCODING_DETECTOR
+		do
+			create l_detector.make
+			if l_detector.has_utf8_bom (a_bytes) then
+				Result := a_bytes.substring (4, a_bytes.count)
+			else
+				Result := a_bytes
+			end
+		ensure
+			result_attached: Result /= Void
+		end
 
 feature {NONE} -- Type references (for `like` anchors only)
 

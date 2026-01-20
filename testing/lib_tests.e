@@ -252,4 +252,39 @@ feature -- Test: Quick API
 			assert ("exists_false", not l_quick.exists ("<root><item>value</item></root>", "root/missing"))
 		end
 
+feature -- Test: File Parsing
+
+	test_parse_file_with_utf8_bom
+			-- Test that files with UTF-8 BOM are parsed correctly.
+			-- Coverage: SIMPLE_XML.parse_file with BOM stripping
+		local
+			l_xml: SIMPLE_XML
+			l_doc: SIMPLE_XML_DOCUMENT
+			l_file: PLAIN_TEXT_FILE
+			l_path: STRING
+			l_content: STRING_8
+		do
+			l_path := "test_bom_temp.xml"
+			-- Create XML file with UTF-8 BOM prefix
+			create l_content.make (50)
+			l_content.append_character ('%/239/')  -- 0xEF
+			l_content.append_character ('%/187/')  -- 0xBB
+			l_content.append_character ('%/191/')  -- 0xBF
+			l_content.append ("<root><item>test</item></root>")
+			create l_file.make_create_read_write (l_path)
+			l_file.put_string (l_content)
+			l_file.close
+			-- Parse and verify
+			create l_xml.make
+			l_doc := l_xml.parse_file (l_path)
+			assert ("bom_parsed", l_doc.is_valid)
+			assert ("has_root", attached l_doc.root as r and then r.name.same_string ("root"))
+			assert ("item_text", l_doc.text_at ("root/item").same_string ("test"))
+			-- Clean up
+			create l_file.make_with_name (l_path)
+			if l_file.exists then
+				l_file.delete
+			end
+		end
+
 end
