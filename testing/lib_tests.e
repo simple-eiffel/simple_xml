@@ -287,4 +287,39 @@ feature -- Test: File Parsing
 			end
 		end
 
+feature -- Test: Serializer
+
+	test_serializer_basic
+			-- Test basic XML serializer functionality.
+			-- Coverage: SIMPLE_XML_SERIALIZER.serialize
+		local
+			l_serializer: SIMPLE_XML_SERIALIZER
+			l_xml: STRING
+		do
+			create l_serializer.make
+			-- Test with a basic object (self)
+			l_xml := l_serializer.serialize (Current)
+			assert ("has_xml_output", not l_xml.is_empty)
+			assert ("has_root_element", l_xml.has_substring ("lib_tests"))
+			assert ("has_class_attr", l_xml.has_substring ("_class"))
+		end
+
+	test_serializer_settings
+			-- Test serializer settings.
+			-- Coverage: SIMPLE_XML_SERIALIZER settings
+		local
+			l_serializer: SIMPLE_XML_SERIALIZER
+		do
+			create l_serializer.make
+			-- Default settings
+			assert ("class_attr_default", l_serializer.include_class_attribute)
+			assert ("primitives_default", not l_serializer.use_attribute_for_primitives)
+
+			-- Change settings
+			l_serializer.set_include_class_attribute (False)
+			l_serializer.set_use_attribute_for_primitives (True)
+			assert ("class_attr_changed", not l_serializer.include_class_attribute)
+			assert ("primitives_changed", l_serializer.use_attribute_for_primitives)
+		end
+
 end

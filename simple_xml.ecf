@@ -22,6 +22,7 @@
 		<library name="gobo_xml" location="$GOBO_LIBRARY/xml/library.ecf"/>
 		<library name="simple_zstring" location="$SIMPLE_EIFFEL/simple_zstring/simple_zstring.ecf"/>
 		<library name="simple_encoding" location="$SIMPLE_EIFFEL/simple_encoding/simple_encoding.ecf"/>
+		<library name="simple_reflection" location="$SIMPLE_EIFFEL/simple_reflection/simple_reflection.ecf"/>
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="simple_xml_tests" extends="simple_xml">
