@@ -18,6 +18,10 @@ note
 			text := element.text
 			attrs := element.attributes
 			children := element.elements
+
+		Model Queries (for contracts):
+			attribute_model: MML_MAP [STRING, STRING] -- All attributes as key-value pairs
+			child_names_model: MML_SEQUENCE [STRING] -- Names of direct child elements
 	]"
 	author: "Larry Rix"
 	date: "$Date$"
@@ -33,8 +37,7 @@ feature {NONE} -- Initialization
 
 	make_from_xm_element (a_element: XM_ELEMENT)
 			-- Create wrapper for `a_element'.
-		require
-			element_not_void: a_element /= Void
+			-- (Attached type guarantees non-void)
 		do
 			xm_element := a_element
 		ensure
@@ -87,12 +90,60 @@ feature -- Access
 			result_attached: Result /= Void
 		end
 
+feature -- Model Queries (for contracts)
+
+	attribute_model: MML_MAP [STRING, STRING]
+			-- All attributes as a mathematical map (key -> value).
+		local
+			l_attrs: DS_LIST [XM_ATTRIBUTE]
+			l_cursor: DS_LINEAR_CURSOR [XM_ATTRIBUTE]
+		do
+			l_attrs := xm_element.attributes
+			create Result
+			l_cursor := l_attrs.new_cursor
+			from l_cursor.start until l_cursor.after loop
+				Result := Result.updated (l_cursor.item.name, l_cursor.item.value)
+				l_cursor.forth
+			end
+		ensure
+			count_matches: Result.count = xm_element.attributes.count
+		end
+
+	child_names_model: MML_SEQUENCE [STRING]
+			-- Sequence of direct child element names (preserves order and duplicates).
+		local
+			l_cursor: DS_LINEAR_CURSOR [XM_NODE]
+		do
+			create Result
+			l_cursor := xm_element.new_cursor
+			from l_cursor.start until l_cursor.after loop
+				if attached {XM_ELEMENT} l_cursor.item as l_elem then
+					Result := Result & l_elem.name
+				end
+				l_cursor.forth
+			end
+		ensure
+			count_matches: Result.count = child_element_count
+		end
+
+	child_element_count: INTEGER
+			-- Number of direct child elements.
+		local
+			l_cursor: DS_LINEAR_CURSOR [XM_NODE]
+		do
+			l_cursor := xm_element.new_cursor
+			from l_cursor.start until l_cursor.after loop
+				if attached {XM_ELEMENT} l_cursor.item then
+					Result := Result + 1
+				end
+				l_cursor.forth
+			end
+		end
+
 feature -- Attribute Access
 
 	attr (a_name: READABLE_STRING_GENERAL): detachable STRING
 			-- Value of attribute named `a_name', or Void if not found.
-		require
-			name_not_void: a_name /= Void
 		do
 			if attached xm_element.attribute_by_name (a_name.to_string_8) as l_attr then
 				Result := l_attr.value
@@ -101,10 +152,10 @@ feature -- Attribute Access
 
 	has_attr (a_name: READABLE_STRING_GENERAL): BOOLEAN
 			-- Does element have attribute named `a_name'?
-		require
-			name_not_void: a_name /= Void
 		do
 			Result := xm_element.has_attribute_by_name (a_name.to_string_8)
+		ensure
+			consistent_with_model: Result = attribute_model.domain [a_name.to_string_8]
 		end
 
 	attributes: HASH_TABLE [STRING, STRING]
@@ -121,25 +172,23 @@ feature -- Attribute Access
 				l_cursor.forth
 			end
 		ensure
-			result_attached: Result /= Void
+			count_matches_model: Result.count = attribute_model.count
 		end
 
 feature -- Child Element Access
 
 	element (a_name: READABLE_STRING_GENERAL): detachable SIMPLE_XML_ELEMENT
 			-- First direct child element named `a_name', or Void if not found.
-		require
-			name_not_void: a_name /= Void
 		do
 			if attached xm_element.element_by_name (a_name.to_string_8) as l_elem then
 				create Result.make_from_xm_element (l_elem)
 			end
+		ensure
+			found_implies_name_in_children: (Result /= Void) implies child_names_model.has (a_name.to_string_8)
 		end
 
 	elements (a_name: READABLE_STRING_GENERAL): ARRAYED_LIST [SIMPLE_XML_ELEMENT]
 			-- All direct child elements named `a_name'.
-		require
-			name_not_void: a_name /= Void
 		local
 			l_cursor: DS_LINEAR_CURSOR [XM_NODE]
 		do
@@ -154,7 +203,8 @@ feature -- Child Element Access
 				l_cursor.forth
 			end
 		ensure
-			result_attached: Result /= Void
+			count_bounded: Result.count <= child_element_count
+			all_named_correctly: across Result as ic all ic.name.same_string (a_name.to_string_8) end
 		end
 
 	all_elements: ARRAYED_LIST [SIMPLE_XML_ELEMENT]
@@ -171,23 +221,21 @@ feature -- Child Element Access
 				l_cursor.forth
 			end
 		ensure
-			result_attached: Result /= Void
+			count_matches_model: Result.count = child_names_model.count
 		end
 
 	has_element (a_name: READABLE_STRING_GENERAL): BOOLEAN
 			-- Does element have direct child named `a_name'?
-		require
-			name_not_void: a_name /= Void
 		do
 			Result := xm_element.has_element_by_name (a_name.to_string_8)
+		ensure
+			consistent_with_model: Result = child_names_model.has (a_name.to_string_8)
 		end
 
 feature -- Navigation (Fluent)
 
 	text_at (a_path: READABLE_STRING_GENERAL): STRING
 			-- Text content at relative path `a_path'.
-		require
-			path_not_void: a_path /= Void
 		do
 			if attached element_at (a_path) as l_elem then
 				Result := l_elem.text
@@ -200,8 +248,6 @@ feature -- Navigation (Fluent)
 
 	element_at (a_path: READABLE_STRING_GENERAL): detachable SIMPLE_XML_ELEMENT
 			-- Element at relative path `a_path'.
-		require
-			path_not_void: a_path /= Void
 		local
 			l_parts: LIST [STRING]
 			l_current: detachable SIMPLE_XML_ELEMENT
@@ -244,8 +290,6 @@ feature -- Modification
 	set_text (a_text: READABLE_STRING_GENERAL): like Current
 			-- Set text content to `a_text'.
 			-- Returns Current for fluent chaining.
-		require
-			text_not_void: a_text /= Void
 		local
 			l_to_remove: ARRAYED_LIST [XM_CHARACTER_DATA]
 			l_cursor: DS_LINEAR_CURSOR [XM_NODE]
@@ -271,14 +315,12 @@ feature -- Modification
 		ensure
 			text_set: text.same_string (a_text.to_string_8)
 			fluent: Result = Current
+			children_unchanged: child_names_model |=| old child_names_model
 		end
 
 	set_attr (a_name: READABLE_STRING_GENERAL; a_value: READABLE_STRING_GENERAL): like Current
 			-- Set attribute `a_name' to `a_value'.
 			-- Returns Current for fluent chaining.
-		require
-			name_not_void: a_name /= Void
-			value_not_void: a_value /= Void
 		do
 			if xm_element.has_attribute_by_name (a_name.to_string_8) then
 				xm_element.remove_attribute_by_name (a_name.to_string_8)
@@ -288,13 +330,12 @@ feature -- Modification
 		ensure
 			attr_set: attached attr (a_name) as v and then v.same_string (a_value.to_string_8)
 			fluent: Result = Current
+			in_domain: attribute_model.domain [a_name.to_string_8]
 		end
 
 	remove_attr (a_name: READABLE_STRING_GENERAL): like Current
 			-- Remove attribute named `a_name'.
 			-- Returns Current for fluent chaining.
-		require
-			name_not_void: a_name /= Void
 		do
 			if xm_element.has_attribute_by_name (a_name.to_string_8) then
 				xm_element.remove_attribute_by_name (a_name.to_string_8)
@@ -303,13 +344,13 @@ feature -- Modification
 		ensure
 			attr_removed: not has_attr (a_name)
 			fluent: Result = Current
+			not_in_domain: not attribute_model.domain [a_name.to_string_8]
 		end
 
 	add_element (a_name: READABLE_STRING_GENERAL): SIMPLE_XML_ELEMENT
 			-- Add new child element named `a_name'.
 			-- Returns new element for fluent chaining.
 		require
-			name_not_void: a_name /= Void
 			name_not_empty: not a_name.is_empty
 		local
 			l_ns: XM_NAMESPACE
@@ -319,8 +360,9 @@ feature -- Modification
 			create l_elem.make_last (xm_element, a_name.to_string_8, l_ns)
 			create Result.make_from_xm_element (l_elem)
 		ensure
-			result_attached: Result /= Void
 			element_added: has_element (a_name)
+			count_increased: child_element_count = old child_element_count + 1
+			name_added_to_model: child_names_model.last.same_string (a_name.to_string_8)
 		end
 
 feature {SIMPLE_XML_ELEMENT, SIMPLE_XML_DOCUMENT, SIMPLE_XML_BUILDER} -- Implementation
@@ -372,5 +414,6 @@ feature {NONE} -- Implementation
 
 invariant
 	element_attached: xm_element /= Void
+	name_not_empty: not name.is_empty
 
 end

@@ -50,8 +50,6 @@ feature {NONE} -- Initialization
 
 	make_from_string (a_xml: STRING)
 			-- Parse XML from `a_xml' string.
-		require
-			xml_not_void: a_xml /= Void
 		local
 			l_parser: XM_EIFFEL_PARSER
 			l_pipe: XM_TREE_CALLBACKS_PIPE
@@ -80,8 +78,6 @@ feature {NONE} -- Initialization
 
 	make_from_xm_document (a_doc: XM_DOCUMENT)
 			-- Wrap existing XM_DOCUMENT.
-		require
-			doc_not_void: a_doc /= Void
 		do
 			xm_document := a_doc
 			create root_element.make_from_xm_element (a_doc.root_element)
@@ -94,7 +90,6 @@ feature {NONE} -- Initialization
 	make_empty (a_root_name: STRING)
 			-- Create new empty document with root named `a_root_name'.
 		require
-			name_not_void: a_root_name /= Void
 			name_not_empty: not a_root_name.is_empty
 		local
 			l_ns: XM_NAMESPACE
@@ -114,7 +109,7 @@ feature {NONE} -- Initialization
 	make_with_error (a_error: STRING)
 			-- Create invalid document with error message.
 		require
-			error_not_void: a_error /= Void
+			error_not_empty: not a_error.is_empty
 		do
 			is_valid := False
 			error_message := a_error
@@ -153,7 +148,6 @@ feature -- Navigation (Direct API)
 			-- Text content at `a_path', or empty string if not found.
 			-- Path format: "root/child/grandchild"
 		require
-			path_not_void: a_path /= Void
 			is_valid: is_valid
 		do
 			if attached element_at (a_path) as l_elem then
@@ -169,8 +163,6 @@ feature -- Navigation (Direct API)
 			-- Attribute value at element `a_path' with attribute name `a_attr_name'.
 			-- Returns Void if element or attribute not found.
 		require
-			path_not_void: a_path /= Void
-			attr_name_not_void: a_attr_name /= Void
 			is_valid: is_valid
 		do
 			if attached element_at (a_path) as l_elem then
@@ -182,7 +174,6 @@ feature -- Navigation (Direct API)
 			-- Element at `a_path', or Void if not found.
 			-- Path format: "root/child/grandchild"
 		require
-			path_not_void: a_path /= Void
 			is_valid: is_valid
 		local
 			l_parts: LIST [STRING]
@@ -221,7 +212,6 @@ feature -- Navigation (Direct API)
 			-- All elements matching `a_path'.
 			-- Last segment can match multiple elements.
 		require
-			path_not_void: a_path /= Void
 			is_valid: is_valid
 		local
 			l_parts: LIST [STRING]
@@ -299,7 +289,6 @@ feature -- Serialization
 	save_to_file (a_path: READABLE_STRING_GENERAL)
 			-- Save XML to file at `a_path'.
 		require
-			path_not_void: a_path /= Void
 			is_valid: is_valid
 		local
 			l_file: PLAIN_TEXT_FILE

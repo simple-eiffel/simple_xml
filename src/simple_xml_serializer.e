@@ -47,8 +47,6 @@ feature -- Serialization
 
 	serialize (a_object: ANY): STRING
 			-- Serialize `a_object` to XML string.
-		require
-			object_exists: a_object /= Void
 		local
 			l_builder: SIMPLE_XML_BUILDER
 			l_root_name: STRING
@@ -67,8 +65,6 @@ feature -- Serialization
 
 	serialize_pretty (a_object: ANY): STRING
 			-- Serialize `a_object` to formatted XML string.
-		require
-			object_exists: a_object /= Void
 		do
 			Result := serialize (a_object)
 			-- Note: Pretty printing would require additional formatting

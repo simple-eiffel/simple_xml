@@ -15,6 +15,9 @@ note
 			           .element ("port").text ("5432").done
 			         .done
 			       .to_document
+
+		Model Queries (for contracts):
+			nesting_depth: INTEGER -- Current nesting level (0 = at root)
 	]"
 	author: "Larry Rix"
 	date: "$Date$"
@@ -31,7 +34,6 @@ feature {NONE} -- Initialization
 	make (a_root_name: STRING)
 			-- Create builder with root element named `a_root_name'.
 		require
-			name_not_void: a_root_name /= Void
 			name_not_empty: not a_root_name.is_empty
 		local
 			l_ns: XM_NAMESPACE
@@ -51,7 +53,6 @@ feature -- Building (Fluent)
 			-- Add child element named `a_name' and move into it.
 			-- Use `done' to return to parent.
 		require
-			name_not_void: a_name /= Void
 			name_not_empty: not a_name.is_empty
 		local
 			l_ns: XM_NAMESPACE
@@ -67,13 +68,11 @@ feature -- Building (Fluent)
 		ensure
 			fluent: Result = Current
 			moved_into_element: current_element.name.same_string (a_name.to_string_8)
+			depth_increased: nesting_depth = old nesting_depth + 1
 		end
 
 	attr (a_name: READABLE_STRING_GENERAL; a_value: READABLE_STRING_GENERAL): like Current
 			-- Add attribute to current element.
-		require
-			name_not_void: a_name /= Void
-			value_not_void: a_value /= Void
 		do
 			current_element.add_unqualified_attribute (a_name.to_string_8, a_value.to_string_8)
 			Result := Current
@@ -84,8 +83,6 @@ feature -- Building (Fluent)
 
 	text (a_text: READABLE_STRING_GENERAL): like Current
 			-- Set text content of current element.
-		require
-			text_not_void: a_text /= Void
 		local
 			l_text: XM_CHARACTER_DATA
 		do
@@ -100,7 +97,21 @@ feature -- Building (Fluent)
 			-- Is builder at root element (no parent to return to)?
 		do
 			Result := element_stack.is_empty
+		ensure
+			definition: Result = (nesting_depth = 0)
 		end
+
+feature -- Model Queries (for contracts)
+
+	nesting_depth: INTEGER
+			-- Current nesting depth (0 = at root).
+		do
+			Result := element_stack.count
+		ensure
+			non_negative: Result >= 0
+		end
+
+feature -- Building (Fluent continued)
 
 	done: like Current
 			-- Finish current element and return to parent.
@@ -112,12 +123,11 @@ feature -- Building (Fluent)
 			Result := Current
 		ensure
 			fluent: Result = Current
+			depth_decreased: nesting_depth = old nesting_depth - 1
 		end
 
 	comment (a_text: READABLE_STRING_GENERAL): like Current
 			-- Add XML comment to current element.
-		require
-			text_not_void: a_text /= Void
 		local
 			l_comment: XM_COMMENT
 		do

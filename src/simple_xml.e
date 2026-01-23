@@ -41,7 +41,6 @@ feature -- Parsing
 	parse (a_xml: READABLE_STRING_GENERAL): SIMPLE_XML_DOCUMENT
 			-- Parse XML from string `a_xml'.
 		require
-			xml_not_void: a_xml /= Void
 			xml_not_empty: not a_xml.is_empty
 		do
 			create Result.make_from_string (a_xml.to_string_8)
@@ -52,7 +51,6 @@ feature -- Parsing
 	parse_file (a_path: READABLE_STRING_GENERAL): SIMPLE_XML_DOCUMENT
 			-- Parse XML from file at `a_path'.
 		require
-			path_not_void: a_path /= Void
 			path_not_empty: not a_path.is_empty
 		local
 			l_file: PLAIN_TEXT_FILE
@@ -78,9 +76,7 @@ feature -- Query
 			-- Query elements at `a_path' from `a_document'.
 			-- Path format: "root/child/element" (simple path, not full XPath)
 		require
-			document_not_void: a_document /= Void
 			document_valid: a_document.is_valid
-			path_not_void: a_path /= Void
 			path_not_empty: not a_path.is_empty
 		do
 			Result := a_document.elements_at (a_path)
@@ -93,7 +89,6 @@ feature -- Building
 	build (a_root_name: READABLE_STRING_GENERAL): SIMPLE_XML_BUILDER
 			-- Start building XML document with root element named `a_root_name'.
 		require
-			name_not_void: a_root_name /= Void
 			name_not_empty: not a_root_name.is_empty
 		do
 			create Result.make (a_root_name.to_string_8)
@@ -104,7 +99,6 @@ feature -- Building
 	new_document (a_root_name: READABLE_STRING_GENERAL): SIMPLE_XML_DOCUMENT
 			-- Create new empty document with root element named `a_root_name'.
 		require
-			name_not_void: a_root_name /= Void
 			name_not_empty: not a_root_name.is_empty
 		do
 			create Result.make_empty (a_root_name.to_string_8)

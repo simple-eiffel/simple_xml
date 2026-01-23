@@ -190,8 +190,6 @@ feature -- Validation
 
 	is_valid (a_xml: STRING): BOOLEAN
 			-- Is string valid XML?
-		require
-			xml_not_void: a_xml /= Void
 		do
 			Result := attached xml.parse (a_xml) as doc and then doc.is_valid
 			if not Result then
